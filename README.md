@@ -11,6 +11,6 @@ npm run docs:run
 # build
 npm run docs:build
 
-#deploy
+# deploy
 npm run deply
 ```
