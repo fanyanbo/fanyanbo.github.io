@@ -1,9 +1,9 @@
 {
-  "name": "vuepress2",
+  "name": "ccdocuments",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://git.coding.net/youhunwl/VuePress.git",
-  "author": "shenwansheng <shenwansheng@inspiry.cn>",
+  "repository": "git@github.com:fanyanbo/fanyanbo.github.io.git",
+  "author": "fanyanbo <fanyanbo@coocaa.cn>",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs",

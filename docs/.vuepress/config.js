@@ -1,10 +1,10 @@
 module.exports = {
   base: '/documents/',
   dest: './docs/.vuepress/dist/documents/',
-  title: '酷开系统开放平台',
+  title: '酷开开放平台技术文档',
   description: '再小的个体，也有自己的品牌',
   head: [
-    ['link', { rel: 'icon', href: `/favicon.ico` }],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     // ['link', { rel: 'manifest', href: '/manifest.json' }],
   ],
   themeConfig: {
@@ -42,13 +42,6 @@ module.exports = {
               children:[
                 'notes/backEnd/nginx',
                 'notes/backEnd/CentOS如何挂载磁盘',
-              ]
-            },
-            {
-              title:'其他',
-              collapsable: true,
-              children:[
-                // '/'
               ]
             },
           ]
