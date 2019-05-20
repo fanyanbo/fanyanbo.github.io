@@ -6,7 +6,7 @@ git clone https://github.com/fanyanbo/fanyanbo.github.io -b dev
 npm install
 
 # develop
-npm run docs:run
+npm run docs:dev
 
 # build
 npm run docs:build
