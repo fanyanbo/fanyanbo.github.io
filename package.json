@@ -29,7 +29,7 @@
     "docs:serve": "serve --single docs/.vuepress/dist",
     "docs:clean": "rm -r docs/.vuepress/dist",
     "lint": "prettier --list-different --write '**/*.{js,vue}'",
-    "deploy": "npm run docs:build && gh-pages -d docs/.vuepress/dist",
+    "deploy": "bash deploy.sh",
     "test": "prettier --list-different '**/*.{js,vue}'"
   },
   "license": "MIT",
