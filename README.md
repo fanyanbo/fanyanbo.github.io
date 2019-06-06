@@ -7,6 +7,12 @@ npm install -g vuepress
 # Install theme
 npm install -g vuepress-theme-api
 
+```
+
+```bash
+# Install dependencies
+npm install
+
 # Start writing
 npm run docs:dev
 

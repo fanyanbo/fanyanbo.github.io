@@ -1,6 +1,6 @@
 ---
 home: true
-title: Hello, World.
+title: 网页开发技术文档
 description: Not sure where to start? We’ve put together some handy guides and reference documentation you can use to start building.
 actionText: Getting Started
 actionLink: /zh/getting-started/
