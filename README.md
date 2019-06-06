@@ -1,4 +1,4 @@
-### 默认主题
+#### 默认主题
 
 ```bash
 # clone the project
