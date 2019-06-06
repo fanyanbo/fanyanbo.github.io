@@ -1,9 +1,12 @@
 module.exports = {
-  title: 'Hello, World.',
-  description: '📦 🎨 A api-friendly theme for VuePress.',
+  title: '技术文档',
+  description: '基于酷开系统网页开发的技术文档',
   theme: 'api',
   base: '/documents/',
   dest: './docs/.vuepress/dist/documents/',
+  // head: [
+  //   ['link', { rel: 'icon', href: '/favicon.ico' }],
+  // ],
   locales: {
     '/': {
       lang: 'en-US',
@@ -13,7 +16,7 @@ module.exports = {
     },
     '/zh/': {
       lang: 'zh-hans',
-      title: 'Hello, World.',
+      title: '技术文档',
       text: '中文',
       description: '📦 🎨 一个面向 RESTful API 设计的开箱即用主题。',
     },
@@ -53,5 +56,12 @@ module.exports = {
       'getting-started',
       'configurations'
     ],
+    configureWebpack: {
+      resolve: {
+        alias: {
+          '@public': './public'
+        }
+      }
+    },
   },
 }
