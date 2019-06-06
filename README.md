@@ -1,3 +1,5 @@
+### 默认主题
+
 ```bash
 # clone the project
 git clone https://github.com/fanyanbo/fanyanbo.github.io -b dev
