@@ -1,15 +1,4 @@
-#### vuepress-theme-api主题
-
-## Prerequisites
-
-There are some global dependencies you need to set up.
-
-- [Node.js](https://nodejs.org/)
-- [VuePress](https://github.com/vuejs/vuepress)
-
-## Getting Started
-
-### Installing
+### vuepress-theme-api主题
 
 ```bash
 # Install vuepress
