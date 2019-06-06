@@ -8,9 +8,12 @@ npm install -g vuepress
 npm install -g vuepress-theme-api
 
 # Start writing
-npm run dev
+npm run docs:dev
 
 # Build to static files
-npm run build
+npm run docs:build
+
+# deploy
+npm run deply
 
 ```
