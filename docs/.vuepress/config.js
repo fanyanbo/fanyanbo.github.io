@@ -10,15 +10,15 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Hello, World.',
+      title: '技术文档',
       text: 'english',
-      description: '📦 🎨 A api-friendly theme for VuePress.',
+      description: '📦 🎨 一份友好的基于酷开系统网页开发的技术文档。',
     },
     '/zh/': {
       lang: 'zh-hans',
       title: '技术文档',
       text: '中文',
-      description: '📦 🎨 一个面向 RESTful API 设计的开箱即用主题。',
+      description: '📦 🎨 一份友好的基于酷开系统网页开发的技术文档。',
     },
   },
   themeConfig: {
@@ -54,7 +54,8 @@ module.exports = {
     lastUpdated: 'Last Updated', // string | boolean
     sidebarGroupOrder: [
       'getting-started',
-      'configurations'
+      'ccos-cli',
+      'api'
     ],
     configureWebpack: {
       resolve: {

@@ -63,11 +63,11 @@ export default {
 .home
 
   &__header
-    margin: 10rem 0
+    margin: 12rem 0
     text-align: center
 
   &__title
-    font-size: 46px
+    font-size: 42px
     font-weight: 400
 
   &__description

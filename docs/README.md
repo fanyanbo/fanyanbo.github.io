@@ -1,45 +1,40 @@
 ---
 home: true
-title: 网页开发技术文档
-description: Not sure where to start? We’ve put together some handy guides and reference documentation you can use to start building.
-actionText: Getting Started
+title: 酷开网页开发技术文档
+description: 不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。
+actionText: 开始出发
 actionLink: /zh/getting-started/
-footer: Open Source on [GitHub](https://github.com/sqrthree/vuepress-theme-api), Made by [@sqrthree](https://github.com/sqrthree), Power by [vuepress](https://github.com/vuejs/vuepress).
+footer: MIT Licensed | Copyright © 2018-present Coocaa, Made by [@sqrthree](https://github.com/sqrthree), Power by [vuepress](https://github.com/vuejs/vuepress).
 ---
 
-### As Easy as 1, 2, 3
+## 像数 1、2、3 一样的简单
 
 ```bash
-# install vuepress
-yarn global add vuepress # OR npm install -g vuepress
+# 安装 命令行工具
+npm install -g ccos-cli
 
-# install theme
-yarn global add vuepress-theme-api # OR npm install -g vuepress-theme-api
+# 安装默认模版
+ccos init .
 
-# create a markdown file and write something
-echo '# Hello, World.' > Hello.md
+# 安装包依赖
+cd . && npm install
 
-# start writing
-vuepress dev
-
-# build to static files
-vuepress build
+# 启动本地开发环境即可看到效果
+npm run dev
 ```
 
 ::: tip
-VuePress requires [Node.js](http://nodejs.org/) >= 8.
+ccos-cli 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8。
 :::
 
 <Section>
 
-## Build for RESTful API
+## 简单易用的API
 
-A easy-to-use, minimalist theme for vuepress.
-
-With out-of-the-box feature, all you need to do is install it and write something.
+开箱即用，你需要做的只是在合适的业务中使用它。
 
 <br>
 
-<Button type="light" to="/getting-started/">Getting Started</Button>
+<Button type="light" to="/zh/getting-started/">开始出发</Button>
 
 </Section>

@@ -91,6 +91,8 @@ export default {
 
         result.unshift(languageSelectText, 'home')
 
+        this.items['home'].title = '首页' // add by fyb
+
         return result
       } else {
         return Object.keys(this.items)
@@ -122,7 +124,7 @@ export default {
   background: $white
 
 .group
-  margin-bottom: 4rem
+  margin-bottom: 2rem
 
   &__title
     padding-left: 30px
