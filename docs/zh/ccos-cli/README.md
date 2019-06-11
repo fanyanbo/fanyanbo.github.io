@@ -1,79 +1,205 @@
-# 起步
+# 介绍
 
-## 介绍
+ccos-cli 是一个快速搭建基于酷开系统web项目的脚手架工具。
+- `开箱即用，灵活配置`
+- `可选择多种构建工具`
+- `支持桌面浏览器调试`
+- `支持热更新`
+- `一键打包上传`
 
-酷开JS-SDK是`酷开开放平台`面向网页开发着提供的基于酷开系统的网页开发工具包。<br>
-
-通过使用酷开JS-SDK,网页开发者可以简单高效的使用酷开系统能力，如获取设备信息，监听状态变化，跳转固定版面等酷开系统特有能力，满足更丰富的产品或运营需求。
-
-### #兼容性
-
-暂无
-
-### #更新日志
-
-暂无
-
-## 安装
-
-### 开发工具
-
-- `VSCode`
-
-- `Google Chrome`
-
-
-### 直接用`<script>`引入
-
-- `开发版本`
-
-- `生产版本`
-
-### #CDN
-
-## 命令行工具（`CLI`）
-
-提供了一个快速搭建工程的脚手架，只需要几分钟的时间就可以运行起来并带有热重载、保存时lint校验，以及可选择不同的构建工具。<br/>
-更多详情可查阅 [ccos-cli](/zh/)
+<br/>
 
 ## 构建于
 
 该项目基于以下开源技术构建：
 
-- [Node.js](https://nodejs.org/)
-- [VuePress](https://github.com/vuejs/vuepress)
+- [Node.js](https://nodejs.org/) *版本必须 >= 8.9.4*
+
+<br/>
 
 ## 环境依赖
 
-在开始使用本主题之前，请确保安装有以上环境。
+在开始使用[ccos-cli](https://www.npmjs.com/package/ccos-cli)之前，请确保安装有以下环境。
 
-- [Node.js](https://nodejs.org/)
-- [VuePress](https://github.com/vuejs/vuepress)
-- [vuepress-theme-api](https://github.com/sqrthree/vuepress-theme-api)
+- [Node.js](https://nodejs.org/) *版本必须 >= 8.9.4*
 
-如果你已经有了 [Node.js](https://nodejs.org/) 环境，可以通过以下命令安装 `VuePress` 和 `vuepress-theme-api`。
+如果你已经有了 `Node.js` 环境，可以通过以下命令安装 `ccos-cli`。
 
 ```bash
-# 安装 vuepress
-yarn global add vuepress # OR npm install -g vuepress
-
-# 安装主题
-yarn global add vuepress-theme-api # OR npm install -g vuepress-theme-api
+# 安装脚手架工具
+npm install -g ccos-cli
 ```
 
-::: warning 本地依赖
-如果你想在一个现有项目中使用 `VuePress`，同时想要在该项目中管理文档，则应该将 `VuePress` 安装为本地依赖。需要注意的是，你同时需要将 [vuepress-theme-api](https://github.com/sqrthree/vuepress-theme-api) 安装为本地依赖。
+:::warning
+CLI 工具假定用户对 Node.js 和相关构建工具有一定程度的了解。如果你是新手，我们强烈建议先在不用构建工具的情况下通读文档，在熟悉相关知识之后再使用 CLI。
 :::
 
-## 应用主题
+<br/>
 
-`VuePress` 默认情况下将会使用自带的默认主题，因此我们需要在 `.vuepress/config.js` 中配置 theme 选项指定为 `vuepress-theme-api` 来应用主题。更多详情请参考 [VuePress | 自定义主题](https://vuepress.vuejs.org/zh/guide/custom-themes.html#%E4%BD%BF%E7%94%A8%E6%9D%A5%E8%87%AA-npm-%E7%9A%84%E4%B8%BB%E9%A2%98)。
+## 快速使用
 
-```js{5}
-// .vuepress/config.js
+安装脚手架ccos-cli后，可以通过以下命令查看版本号和帮助信息。
+
+```bash
+# 查看版本号
+MacBook-Pro:~ username$ ccos -v
+0.1.27
+
+# 查看帮助信息
+MacBook-Pro:~ username$ ccos -h
+Usage: ccos [options] [command]
+
+Options:
+  -v, --version           output the version number
+  -h, --help              output usage information
+
+Commands:
+  help                    显示使用帮助
+  init|i [options] [dir]  创建一个可以使用酷开系统Api的web项目
+```
+<br/>
+一切准备就绪，我们来快速创建一个web项目
+
+```bash
+# 查看init命令使用帮助
+MacBook-Pro:~ username$ ccos init -h
+Usage: init|i [dir] -t [fis|webpack|gulp]
+
+创建一个可以使用酷开系统Api的web项目
+
+Options:
+  -t, --tool [fis|webpack|gulp]  选择构建工具, 默认是fis
+  -h, --help                     output usage information
+fanyanbodeMacBook-Pro:公众平台 fanyanbo$ 
+```
+<br/>
+
+> 指定项目目录，不指定则默认在当前工作目录创建<br/>
+> 指定构建工具，不指定则默认使用fis3，目前还支持webpack，gulp暂不支持
+
+```bash
+# 创建项目，工程目录为mydemo，构建工具为fis3
+MacBook-Pro:~ username$ ccos init mydemo
+⠋ creating the project...
+
+   create dir
+   create index.html
+   create index.css
+   create logo.png
+   create cordova.js
+   create cordova_plugins.js
+   create plugins/coocaaosapi.js
+   create js/coocaamap-1.0.js
+   create js/framework.js
+   create js/jquery-1.8.3.min.js
+   create bin/www
+   create bin/upload
+   create bin/deploy
+   create config/index.js
+
+  Create complete.
+
+  Tip: cd mydemo && npm install 
+```
+:::warning
+按上述Tip：进入到工程目录mydemo，然后执行npm install安装本地依赖。
+:::
+
+创建后的目录结构如下:
+
+```js{1}
+  '|-- mydemo'
+  '    |-- package.json',
+  '    |-- bin',
+  '    |   |-- deploy.sh',
+  '    |   |-- upload',
+  '    |   |-- www',
+  '    |-- config',
+  '    |   |-- index.js',
+  '    |-- src',
+  '        |-- cordova.js',
+  '        |-- cordova_plugins.js',
+  '        |-- fis-conf.js',
+  '        |-- index.html',
+  '        |-- css',
+  '        |   |-- index.css',
+  '        |-- images',
+  '        |   |-- logo.png',
+  '        |-- js',
+  '        |   |-- coocaamap-1.0.js',
+  '        |   |-- framework.js',
+  '        |   |-- jquery-1.8.3.min.js',
+  '        |-- plugins',
+  '            |-- coocaaosapi.js'
+```
+
+<br/>
+
+进入工程目录，执行以下命令可开始你的工作。
+```bash
+# 编译开发环境，自动打开桌面浏览器
+npm run start OR npm run dev
+
+# 实时监听文件修改，自动刷新桌面浏览器
+npm run watch
+
+# 构建生产目录，默认为dist
+npm run build
+
+# 上传生产代码，默认目录为dist
+npm run upload
+
+# 一键打包上传
+npm run deploy
+```
+<br/>
+
+## 配置文件
+
+__通用配置文件__
+
+文件路径：`config/index.js`
+
+文件内容：
+```js
+'use strict'
+
+const path = require('path')
+
 module.exports = {
-  title: 'Hello, World.',
-  description: '📦 🎨 A api-friendly theme for VuePress.',
-  theme: 'api',
+    dev: {
+        ftpConnection: {
+            host: "172.20.135.54",
+            user: "appuser",
+            password: "appuser.appuser"
+        },
+        serverDomain: 'beta.webapp.skysrt.com',
+        serverDir: 'fyb/aaa', //只支持已存在目录下创建一层目录
+        localPort: 3003,
+        localDistDir: path.join(__dirname, '../dist'),
+        localSrcDir: path.join(__dirname, '../src'),
+        entry: 'index.html'
+    },
+
+    build: {
+        ftpConnection: {
+            host: '',
+            user: '',
+            password: ''
+        },
+        serverDomain: '',
+        serverDir: '',
+        localDistDir: path.join(__dirname, '../dist'),
+        entry: 'index.html'
+    }
 }
 ```
+
+__fis3配置文件__
+
+文件路径：`src/fis-conf.js`
+
+__webpack配置文件__
+
+文件路径：`webpack.config.js`
+

@@ -7,36 +7,31 @@ actionLink: /zh/getting-started/
 footer: MIT Licensed | Copyright © 2018-present Coocaa, Made by [@sqrthree](https://github.com/sqrthree), Power by [vuepress](https://github.com/vuejs/vuepress).
 ---
 
-## 1、2、3 很简单
+## 像数 1、2、3 一样的简单
 
 ```bash
-# 安装 vuepress
-yarn global add vuepress # OR npm install -g vuepress
+# 安装 命令行工具
+npm install -g ccos-cli
 
-# 安装主题
-yarn global add vuepress-theme-api # OR npm install -g vuepress-theme-api
+# 安装默认模版
+ccos init .
 
-# 创建一个 md 文件，试着写一些东西吧。
-echo '# Hello, World.' > Hello.md
+# 安装包依赖
+cd . && npm install
 
-# 启动本地开发环境服务器
-vuepress dev
-
-# 构建静态文件
-vuepress build
+# 启动本地开发环境即可看到效果
+npm run dev
 ```
 
 ::: tip
-VuePress 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8。
+ccos-cli 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8.9.4。
 :::
 
 <Section>
 
-## 为 RESTful API 而生
+## 简单易用的API
 
-一个简洁易用的 VuePress 主题。
-
-开箱即用，你需要做的只是安装它，然后写吧。
+开箱即用，你需要做的只是在合适的业务中使用它。
 
 <br>
 

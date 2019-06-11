@@ -24,7 +24,7 @@ npm run dev
 ```
 
 ::: tip
-ccos-cli 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8。
+ccos-cli 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8.9.4。
 :::
 
 <Section>
