@@ -2,23 +2,23 @@
 
 ### 接口调用说明
 
-所有接口通过ccos对象来调用。
+所有接口通过`ccos`对象来调用。
 
 ### 参数
 
 参数是一个对象，除了每个接口本身需要传的参数之外，还有以下通用参数：
 
-- success：接口调用成功时执行的回调函数。
+- `success`：接口调用成功时执行的回调函数。
 
-- fail：接口调用失败时执行的回调函数。
+- `fail`：接口调用失败时执行的回调函数。
 
-- complete：接口调用完成时执行的回调函数，无论成功或失败都会执行。
+- `complete`：接口调用完成时执行的回调函数，无论成功或失败都会执行。
 
 以上几个函数返回值都带有一个参数，类型为对象。
 
-其中除了每个接口本身返回的数据之外，还有一个通用属性errMsg，其值格式如下：
+其中除了每个接口本身返回的数据之外，还有一个通用属性`errMsg`，其值格式如下：
 
-调用成功时："xxx:ok" ，其中xxx为调用的接口名
+调用成功时：`"xxx:ok"` ，其中`xxx`为调用的接口名
 
 调用失败时：其值为具体错误信息
 
@@ -28,8 +28,8 @@
 
 | 模块划分 | 调用方法 | 功能说明 | 权限等级 |
 | :-: | :-: | :-: | :-: | :-: |
-| 系统接口 | getVideoSource | 获取设备视频源 `tencent | iqiyi` |  |
-| 系统接口 | getAppInfo | 获取`app`相关信息 |  |
+| 系统接口 | <a href="#1"> getVideoSource </a> | 获取设备视频源 `tencent | iqiyi` |  |
+| 系统接口 | <a href="#2"> getAppInfo </a> | 获取`app`相关信息 |  |
 | 系统接口 | getPushInfo | 获取应用`push`信息 |  |
 | 系统接口 | getPropertiesValue | 获取属性|  |
 | 系统接口 | addUSBChangedListener | `USB`状态事件监听 |  |
@@ -128,218 +128,67 @@
 <br/>
 
 ## 详细说明
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<Block>
 
-# 内置组件
+### 系统接口
 
-得益于 `VuePress` 的 [组件支持特性](https://vuepress.vuejs.org/zh/guide/using-vue.html#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84-api-%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6)，我们可以在 Markdown 文件中直接使用 Vue 组件。
+<a name = "1"><font size=5>ccos.getVideoSource(Object obj)</font></a>
 
-为了更好的展示文档内容，主题内置了几个非常有用的组件，你可以在任一 Markdown 文件中直接使用。
+__获取本机视频源，与后台交互细节封装在接口内。__
 
-内置组件开箱即用，并且在组件内仍旧可以写 Markdown 语法的内容。
-
-目前主要内置了以下组件：
-
-[[toc]]
-
-</Block>
-
-<Block>
-
-## Block 组件
-
-`Block` 组件主要用于在本页所使用的布局中划分页面结构。每个 `Block` 组件为一个内容分组。方便你能够自由灵活地把控页面结构。
-
-<Example>
-
-使用方式：
-
-```vue
-<Block>
-
-Contents...
-
-</Block>
-```
-
-</Example>
-
-</Block>
-
-<Block>
-
-## Example 组件
-
-`Example` 组件用于在 `<Block>` 组件中指定右侧深色区域的内容。可以清晰地标识当前部分内容为使用案例。
-
-<Example>
-
-使用方式：
-
-```vue
-<Block>
-
-Contents...
-
-<Example>
-
-Some examples...
-
-</Example>
-
-</Block>
-```
-
-</Example>
-
-</Block>
-
-<Block>
-
-## CURL 组件
-
-`CURL` 组件是一个非常有用的组件。主要用于在编写 API 时更好的显示 `curl` 命令时使用。
-
-例如下面的内容将会渲染成右侧的形式：
-
-````vue
-<CURL>
-```bash
-curl -X POST http://api.example.com/api/auth/login \
-  --data '{
-    "username": "my-username",
-    "password": "my-password"
-  }'
-```
-</CURL>
-````
-
-`CURL` 组件会在组件下方自动生成一个按钮，当点击按钮时，会通过分析 `curl` 命令内的参数，通过 `JS` 发送请求到对应的地址上。并将其请求信息输出到浏览器开发者工具中的控制台上。方便进行快速测试和预览。
-
-<Example>
-
-<CURL>
-
-```bash
-curl -X POST http://api.example.com/api/auth/login \
-  --data '{
-    "username": "my-username",
-    "password": "my-password"
-  }'
-```
-</CURL>
-
-</Example>
-
-</Block>
-
-<Block>
-
-## Button 组件
-
-Button 组件可以使用在任何页面的任何地方。你可以用来指向一个链接，或是一些特殊的内容。
-
-支持的参数如下：
-
-| Name | Type | Description | Default |
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| to | String | 链接地址 | `""` |
-| size | String | 按钮大小，可选值有 `small | large` | `""` |
-| light | Boolean | 是否采用亮色主题 | `false` |
+| success | function |  | 否 | 接口调用成功的回调函数 |
+| fail | function |  | 否 | 接口调用失败的回调函数 |
+| complete | function |  | 否 | 接口调用结束的回调函数`成功失败都会执行` |
 
-使用下面的代码即可放置一个按钮：
+success回调函数参数 `Object res`
+| 属性 | 类型 | 说明 |
+| :-: | :-: | :-: |
+| source | string | `tencent|iqiyi|other` |
 
-```vue
-<Button>默认状态</Button>
+示例代码
+
+```js
+  ccos.getVideoSource({
+    success(res) {
+      console.log(res.errMsg); //调用成功时："xxx:ok" ，其中xxx为调用的接口名
+      Console.log(res.source);
+    }
+  })
 ```
 
-效果如下：
+<br/>
 
-<Button>默认状态</Button>
+<a name = "2"><font size=5>ccos.getAppInfo(Object obj)</font></a>
 
-<br>
-<br>
+__获取app相关信息__
 
-站内跳转：
-
-```vue
-<Button to="/zh/">首页</Button>
-```
-
-效果如下：
-
-<Button to="/zh/">首页</Button>
-
-<Example>
-
-更多使用案例：
-
-```vue
-<Button light>亮色主题</Button>
-```
-
-<Button light>亮色主题</Button>
-
-```vue
-<Button to="https://github.com/sqrthree/vuepress-theme-api" light>指定为一个链接</Button>
-```
-
-<Button to="https://github.com/sqrthree/vuepress-theme-api" light>指定为一个链接</Button>
-
-```vue
-<Button size="small" light>不同的 size</Button>
-```
-
-<Button size="small" light>不同的 size</Button>
-
-</Example>
-
-</Block>
-
-<Block>
-
-## Section 组件
-
-`Section` 组件是一种特殊的布局形式，主要用于 [首页](/zh/#%E4%B8%BA-restful-api-%E8%80%8C%E7%94%9F)。具体效果可参考 [首页 | 为 RESTful API 而生](/zh/#%E4%B8%BA-restful-api-%E8%80%8C%E7%94%9F)。
-
-| Name | Type | Description | Default |
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| theme | String | 主题颜色，可选值有 `dark | light` | `"dark"` |
-| center | Boolean | 内容是否居中 | `true` |
-| enhanceMode | Boolean | 是否启用增强模式 | `true` |
+| pkgname | Object |  | 是 | key是`pkgList`,value是app包名的数组 |
+| success | function |  | 否 | 接口调用成功的回调函数 |
+| fail | function |  | 否 | 接口调用失败的回调函数 |
+| complete | function |  | 否 | 接口调用结束的回调函数`成功失败都会执行` |
 
-::: tip 增强模式
-增强模式是指该 `Section` 组件突破父级元素宽度限制，达到和浏览器窗口宽度一致的效果。
-:::
+success回调函数参数 `Object res`
+| 属性 | 类型 | 说明 |
+| :-: | :-: | :-: |
+| versionCode | Number | `100348` |
+| status | String | `0:ok` |
+| versionName | String | `1.3.48` |
 
-<Example>
+示例代码
 
-首页中使用的配置案例为：
-
-```vue
-<Section>
-
-## 为 RESTful API 而生
-
-一个简洁易用的 VuePress 主题。
-
-开箱即用，你需要做的只是安装它，然后写吧。
-
-<Button type="light" to="/getting-started/">开始出发</Button>
-
-</Section>
+```js
+  var a = '{"pkgList":["com.tianci.user","com.coocaa.mall"]}'
+  coocaaosapi.getAppInfo({
+    pkgname: a,
+    success(res) {
+      console.log(res.errMsg); //调用成功时："xxx:ok" ，其中xxx为调用的接口名
+      Console.log(JSON.stringify(res));
+  }
 ```
 
-</Example>
-
-</Block>
+<br/>
+<br/>
+<br/>
