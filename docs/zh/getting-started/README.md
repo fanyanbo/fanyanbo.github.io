@@ -14,7 +14,7 @@
 
 - 不支持`<video>`标签
 
-- 多`<button>`会自动寻焦，建议使用推荐做法：[coocaamap](/zh/)
+- 多`<button>`会自动寻焦，推荐使用插件：[ccmap](/zh/other/)
 
 <br/>
 

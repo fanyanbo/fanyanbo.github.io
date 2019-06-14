@@ -168,6 +168,8 @@ export default {
 .page__container
   min-height: 100vh
   padding: 4rem 6rem 0
+  // fixbug: 隐藏滚动条
+  background-color :#fff; 
 
   .curl__container
     text-align: center
@@ -190,12 +192,12 @@ export default {
 .page--block-layout
   .content__footer-container
     margin: 0 -3rem
-    background-color: #000
+    // background-color: #000
 
   .content__footer
     width: 50%;
     padding: 0 3rem 2rem
-    background-color: #fafafa
+    // background-color: #fafafa
 
 .content-block
   margin: -4rem -6rem 4rem
