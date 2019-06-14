@@ -92,6 +92,8 @@ export default {
         result.unshift(languageSelectText, 'home')
 
         this.items['home'].title = '首页' // add by fyb
+        result.shift('选择语言')
+        delete this.items.选择语言;
 
         return result
       } else {

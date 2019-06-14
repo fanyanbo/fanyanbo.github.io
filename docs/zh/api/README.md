@@ -28,8 +28,8 @@
 
 | 模块划分 | 调用方法 | 功能说明 | 权限等级 |
 | :-: | :-: | :-: | :-: | :-: |
-| 系统接口 | <a href="#1"> getVideoSource </a> | 获取设备视频源 `tencent | iqiyi` |  |
-| 系统接口 | <a href="#2"> getAppInfo </a> | 获取`app`相关信息 |  |
+| 系统接口 | <a href="#1" name="_1"> getVideoSource </a> | 获取设备视频源 `tencent | iqiyi` |  |
+| 系统接口 | <a href="#2" name="_2"> getAppInfo </a> | 获取`app`相关信息 |  |
 | 系统接口 | getPushInfo | 获取应用`push`信息 |  |
 | 系统接口 | getPropertiesValue | 获取属性|  |
 | 系统接口 | addUSBChangedListener | `USB`状态事件监听 |  |
@@ -131,7 +131,7 @@
 
 ### 系统接口
 
-<a name = "1"><font size=5>ccos.getVideoSource(Object obj)</font></a>
+<a name = "1" href="#_1"><font size=5>ccos.getVideoSource(Object obj)</font></a>
 
 __获取本机视频源，与后台交互细节封装在接口内。__
 
@@ -159,7 +159,7 @@ success回调函数参数 `Object res`
 
 <br/>
 
-<a name = "2"><font size=5>ccos.getAppInfo(Object obj)</font></a>
+<a name = "2" href="#_2"><font size=5>ccos.getAppInfo(Object obj)</font></a>
 
 __获取app相关信息__
 

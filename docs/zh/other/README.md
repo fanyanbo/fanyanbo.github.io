@@ -1,18 +1,43 @@
-<Block>
+# 插件
 
-# 内置组件
+## coocaakeymap
 
-得益于 `VuePress` 的 [组件支持特性](https://vuepress.vuejs.org/zh/guide/using-vue.html#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84-api-%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6)，我们可以在 Markdown 文件中直接使用 Vue 组件。
+### 介绍
 
-为了更好的展示文档内容，主题内置了几个非常有用的组件，你可以在任一 Markdown 文件中直接使用。
+当网页有元素切换的业务需求时，推荐开发者使用该插件: `coocaakeymap.js`。
 
-内置组件开箱即用，并且在组件内仍旧可以写 Markdown 语法的内容。
+使用电视端网页与移动端、PC端网页最大的不同就是交互方式，电视端使用遥控器来操作，如何方便让网页元素之间焦点切换变得非常重要，`coocaakeymap.js` 应此需求而生，它可以方便控制网页元素之间的切换。
 
-目前主要内置了以下组件：
+::: warning 
+不推荐开发者使用 `button、input` 等标签作为落焦元素，尽管浏览器内核会自动寻址这些标签元素，但不利于控制。
+:::
 
-[[toc]]
+<br/>
 
-</Block>
+### 安装与环境依赖
+
+直接下载并用`<script>`标签引入，[开发版本链接](https://beta.webapp.skysrt.com/fyb/other/cdn/coocaakeymap-2.1.js)， coocaakeymap会被注册为一个全局变量。
+
+
+在开始使用`coocaakeymap`之前，请确保先引入`jQuery`：[下载链接](http://jquery.com/download/)。
+
+<br/>
+
+### 快速使用
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
 
 <Block>
 
