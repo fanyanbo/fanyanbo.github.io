@@ -3,30 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Hello, World.</title>
-    <meta name="description" content="Not sure where to start? We’ve put together some handy guides and reference documentation you can use to start building.">
+    <title>技术文档</title>
+    <meta name="description" content="不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。">
     
     
-    <link rel="preload" href="/documents/assets/css/0.styles.595bb417.css" as="style"><link rel="preload" href="/documents/assets/js/app.af63a453.js" as="script"><link rel="preload" href="/documents/assets/js/3.88b40e4e.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.533deaed.js"><link rel="prefetch" href="/documents/assets/js/2.d9f00721.js"><link rel="prefetch" href="/documents/assets/js/4.dd31e276.js"><link rel="prefetch" href="/documents/assets/js/5.febfc55f.js"><link rel="prefetch" href="/documents/assets/js/6.57c2289e.js"><link rel="prefetch" href="/documents/assets/js/7.dfaded20.js"><link rel="prefetch" href="/documents/assets/js/8.41169073.js"><link rel="prefetch" href="/documents/assets/js/9.722b32eb.js">
-    <link rel="stylesheet" href="/documents/assets/css/0.styles.595bb417.css">
+    <link rel="preload" href="/documents/assets/css/0.styles.522c0dff.css" as="style"><link rel="preload" href="/documents/assets/js/app.357d80b9.js" as="script"><link rel="preload" href="/documents/assets/js/4.f4e48289.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.5ee3dc35.js"><link rel="prefetch" href="/documents/assets/js/2.f2e3edd0.js"><link rel="prefetch" href="/documents/assets/js/3.11a7cfbf.js"><link rel="prefetch" href="/documents/assets/js/5.97d4573d.js"><link rel="prefetch" href="/documents/assets/js/6.4606a949.js"><link rel="prefetch" href="/documents/assets/js/7.b618136b.js"><link rel="prefetch" href="/documents/assets/js/8.a9d2f15a.js"><link rel="prefetch" href="/documents/assets/js/9.9e28ae2c.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.522c0dff.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme__container no-sidebar"><div><div class="home__container container"><div class="home__header"><h1 class="home__title">网页开发技术文档</h1> <p class="home__description">Not sure where to start? We’ve put together some handy guides and reference documentation you can use to start building.</p> <a href="/documents/zh/getting-started/" class="btn btn--default btn--default">Getting Started</a></div> <div class="home__body row"><div class="home__content col-md-10"><div class="content custom"><h3 id="as-easy-as-1-2-3"><a href="#as-easy-as-1-2-3" aria-hidden="true" class="header-anchor">#</a> As Easy as 1, 2, 3</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># install vuepress</span>
-<span class="token function">yarn</span> global <span class="token function">add</span> vuepress <span class="token comment"># OR npm install -g vuepress</span>
+    <div id="app" data-server-rendered="true"><div class="theme__container no-sidebar"><div><div class="home__container container"><div class="home__header"><h1 class="home__title">酷开网页开发技术文档</h1> <p class="home__description">不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。</p> <a href="/documents/zh/getting-started/" class="btn btn--default btn--default">开始出发</a></div> <div class="home__body row"><div class="home__content col-md-10"><div class="content custom"><h2 id="像数-1、2、3-一样的简单"><a href="#像数-1、2、3-一样的简单" aria-hidden="true" class="header-anchor">#</a> 像数 1、2、3 一样的简单</h2> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># 安装 命令行工具</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g ccos-cli
 
-<span class="token comment"># install theme</span>
-<span class="token function">yarn</span> global <span class="token function">add</span> vuepress-theme-api <span class="token comment"># OR npm install -g vuepress-theme-api</span>
+<span class="token comment"># 安装默认模版</span>
+ccos init <span class="token keyword">.</span>
 
-<span class="token comment"># create a markdown file and write something</span>
-<span class="token keyword">echo</span> <span class="token string">'# Hello, World.'</span> <span class="token operator">&gt;</span> Hello.md
+<span class="token comment"># 安装包依赖</span>
+<span class="token function">cd</span> <span class="token keyword">.</span> <span class="token operator">&amp;&amp;</span> <span class="token function">npm</span> <span class="token function">install</span>
 
-<span class="token comment"># start writing</span>
-vuepress dev
-
-<span class="token comment"># build to static files</span>
-vuepress build
-</code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>VuePress requires <a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> &gt;= 8.</p></div> <section class="section section--dark section--center"><div class="container"><div class="row enhance-mode__homepage"><div class="col-md-10"><h2 id="build-for-restful-api"><a href="#build-for-restful-api" aria-hidden="true" class="header-anchor">#</a> Build for RESTful API</h2> <p>A easy-to-use, minimalist theme for vuepress.</p> <p>With out-of-the-box feature, all you need to do is install it and write something.</p> <br> <a href="/documents/getting-started/" class="btn btn--light btn--default">Getting Started</a></div></div></div></section></div></div></div> <footer class="home__footer"><p>Open Source on <a href="https://github.com/sqrthree/vuepress-theme-api">GitHub</a>, Made by <a href="https://github.com/sqrthree">@sqrthree</a>, Power by <a href="https://github.com/vuejs/vuepress">vuepress</a>.</p>
+<span class="token comment"># 启动本地开发环境即可看到效果</span>
+<span class="token function">npm</span> run dev
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>ccos-cli 要求 <a href="http://nodejs.org/" target="_blank" rel="noopener noreferrer">Node.js<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 版本必须 &gt;= 8.9.4。</p></div> <section class="section section--dark section--center"><div class="container"><div class="row enhance-mode__homepage"><div class="col-md-10"><h2 id="简单易用的api"><a href="#简单易用的api" aria-hidden="true" class="header-anchor">#</a> 简单易用的API</h2> <p>开箱即用，你需要做的只是在合适的业务中使用它。</p> <br> <a href="/documents/zh/getting-started/" class="btn btn--light btn--default">开始出发</a></div></div></div></section></div></div></div> <footer class="home__footer"><p>MIT Licensed | Copyright © 2018-present Coocaa, Made by <a href="https://github.com/sqrthree">@sqrthree</a>, Power by <a href="https://github.com/vuejs/vuepress">vuepress</a>.</p>
 </footer></div></div></div></div>
-    <script src="/documents/assets/js/app.af63a453.js" defer></script><script src="/documents/assets/js/3.88b40e4e.js" defer></script>
+    <script src="/documents/assets/js/app.357d80b9.js" defer></script><script src="/documents/assets/js/4.f4e48289.js" defer></script>
   </body>
 </html>
