@@ -2,7 +2,7 @@
 
 ### 接口调用说明
 
-所有接口通过`ccos`对象来调用。
+所有接口通过`ccApp`对象来调用。
 
 ### 参数
 
@@ -131,7 +131,7 @@
 
 ### 系统接口
 
-<a name = "1" href="#_1"><font size=5>ccos.getVideoSource(Object obj)</font></a>
+<a name = "1" href="#_1"><font size=5>ccApp.getVideoSource(Object obj)</font></a>
 
 __获取本机视频源，与后台交互细节封装在接口内。__
 
@@ -149,7 +149,7 @@ success回调函数参数 `Object res`
 示例代码
 
 ```js
-  ccos.getVideoSource({
+  ccApp.getVideoSource({
     success(res) {
       console.log(res.errMsg); //调用成功时："xxx:ok" ，其中xxx为调用的接口名
       Console.log(res.source);
@@ -159,7 +159,7 @@ success回调函数参数 `Object res`
 
 <br/>
 
-<a name = "2" href="#_2"><font size=5>ccos.getAppInfo(Object obj)</font></a>
+<a name = "2" href="#_2"><font size=5>ccApp.getAppInfo(Object obj)</font></a>
 
 __获取app相关信息__
 
@@ -180,9 +180,9 @@ success回调函数参数 `Object res`
 示例代码
 
 ```js
-  var a = '{"pkgList":["com.tianci.user","com.coocaa.mall"]}'
-  coocaaosapi.getAppInfo({
-    pkgname: a,
+  var params = '{"pkgList":["com.tianci.user","com.coocaa.mall"]}'
+  ccApp.getAppInfo({
+    pkgname: params,
     success(res) {
       console.log(res.errMsg); //调用成功时："xxx:ok" ，其中xxx为调用的接口名
       Console.log(JSON.stringify(res));

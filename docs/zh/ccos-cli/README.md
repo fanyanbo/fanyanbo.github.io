@@ -43,7 +43,7 @@ CLI 工具假定用户对 Node.js 和相关构建工具有一定程度的了解�
 ```bash
 # 查看版本号
 MacBook-Pro:~ username$ ccos -v
-0.1.27
+0.1.34
 
 # 查看帮助信息
 MacBook-Pro:~ username$ ccos -h
@@ -58,7 +58,7 @@ Commands:
   init|i [options] [dir]  创建一个可以使用酷开系统Api的web项目
 ```
 <br/>
-一切准备就绪，我们来快速创建一个web项目
+一切准备就绪，我们来快速创建一个web项目吧
 
 ```bash
 # 查看init命令使用帮助
@@ -70,12 +70,10 @@ Usage: init|i [dir] -t [fis|webpack|gulp]
 Options:
   -t, --tool [fis|webpack|gulp]  选择构建工具, 默认是fis
   -h, --help                     output usage information
-fanyanbodeMacBook-Pro:公众平台 fanyanbo$ 
 ```
-<br/>
 
-> 指定项目目录，不指定则默认在当前工作目录创建<br/>
-> 指定构建工具，不指定则默认使用fis3，目前还支持webpack，gulp暂不支持
+> [dir] 指定项目目录，不指定则默认在当前工作目录创建<br/>
+> -t 指定构建工具，不指定则默认使用fis3，目前暂不支持使用gulp构建
 
 ```bash
 # 创建项目，工程目录为mydemo，构建工具为fis3
@@ -86,16 +84,16 @@ MacBook-Pro:~ username$ ccos init mydemo
    create index.html
    create index.css
    create logo.png
-   create cordova.js
-   create cordova_plugins.js
-   create plugins/coocaaosapi.js
-   create js/coocaamap-1.0.js
-   create js/framework.js
+   create js/ccsdk-1.0.js
+   create js/ccsdk-common-1.0.js
+   create js/ccmap-2.1.js
+   create js/index.js
    create js/jquery-1.8.3.min.js
    create bin/www
    create bin/upload
    create bin/deploy
    create config/index.js
+   create package.json
 
   Create complete.
 
@@ -105,32 +103,36 @@ MacBook-Pro:~ username$ ccos init mydemo
 按上述Tip：进入到工程目录mydemo，然后执行npm install安装本地依赖。
 :::
 
-创建后的目录结构如下:
+创建后使用`treer`输出目录结构如下:
 
 ```js{1}
-  '|-- mydemo'
-  '    |-- package.json',
-  '    |-- bin',
-  '    |   |-- deploy.sh',
-  '    |   |-- upload',
-  '    |   |-- www',
-  '    |-- config',
-  '    |   |-- index.js',
-  '    |-- src',
-  '        |-- cordova.js',
-  '        |-- cordova_plugins.js',
-  '        |-- fis-conf.js',
-  '        |-- index.html',
-  '        |-- css',
-  '        |   |-- index.css',
-  '        |-- images',
-  '        |   |-- logo.png',
-  '        |-- js',
-  '        |   |-- coocaamap-1.0.js',
-  '        |   |-- framework.js',
-  '        |   |-- jquery-1.8.3.min.js',
-  '        |-- plugins',
-  '            |-- coocaaosapi.js'
+  mydemo
+  ├─package.json
+  ├─src
+  |  ├─fis-conf.js
+  |  ├─index.html
+  |  ├─js
+  |  | ├─ccmap-2.1.js
+  |  | ├─ccsdk-1.0.js
+  |  | ├─ccsdk-common-1.0.js
+  |  | ├─index.js
+  |  | └jquery-1.8.3.min.js
+  |  ├─images
+  |  |   └logo.png
+  |  ├─css
+  |  |  └index.css
+  ├─config
+  |   └index.js
+  ├─bin
+  |  ├─deploy.sh
+  |  ├─online
+  |  ├─upload
+  |  ├─www
+  |  ├─online-edit
+  |  |      ├─ccmap-2.1.js
+  |  |      ├─index.html
+  |  |      ├─index.js
+  |  |      └jquery-1.8.3.min.js
 ```
 
 <br/>
@@ -170,8 +172,8 @@ module.exports = {
     dev: {
         ftpConnection: {
             host: "172.20.135.54",
-            user: "appuser",
-            password: "appuser.appuser"
+            user: "你的账号",
+            password: "你的密码"
         },
         serverDomain: 'beta.webapp.skysrt.com',
         serverDir: 'fyb/aaa', //只支持已存在目录下创建一层目录

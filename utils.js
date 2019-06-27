@@ -47,7 +47,8 @@ export function title(str) {
     .replace(regex, (m, lead = '', forced, lower, rest) => {
       if (specials.includes(m)) return m.toUpperCase()
 
-      return lead + (lower || forced).toUpperCase() + rest
+      // return lead + (lower || forced).toUpperCase() + rest
+      return lead + (lower || forced).toLowerCase() + rest // modified by fyb
     })
 }
 

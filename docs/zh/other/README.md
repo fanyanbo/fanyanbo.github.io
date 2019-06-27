@@ -19,7 +19,7 @@
 直接下载并用`<script>`标签引入，[开发版本链接](https://beta.webapp.skysrt.com/fyb/other/cdn/ccmap-2.1.js)， ccmap会被注册为一个全局变量。
 
 
-在开始使用`ccmap.js`之前，请确保先引入`jquery`：[下载链接](http://jquery.com/download/)。
+在开始使用`ccmap.js`之前，请确保先引入`jQuery`：[下载链接](http://jquery.com/download/)。
 
 <br/>
 <br/>
@@ -133,9 +133,9 @@ ccmap.init(".coocaa_btn", '#second', "btn_class")
 
 ## 在线运行
 
-## js-sdk与Vue
+## Vue与ccsdk
 
-## ccmap与Vue
+## Vue与ccmap
 
 <br/>
 <br/>
