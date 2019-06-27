@@ -73,6 +73,39 @@ ccmap.init(".coocaa_btn", '#second', "btn_class");
 
 </Block>
 
+<Block>
+__重置焦点元素: ccmap.reset(目标元素)__
+
+```html
+<div id="container">
+	<div id="first" class="coocaa_btn">第一组#1</div>
+	<div id="second" class="coocaa_btn">第一组#2</div>
+</div>
+<div id="container2">
+	<div id="first2" class="coocaa_btn2">第二组#1</div>
+	<div id="second2" class="coocaa_btn2">第二组#2</div>
+</div>
+```
+```js
+ccmap.init(".coocaa_btn", '#second', "btn_class")
+    .reset('.coocaa_btn2');
+```
+
+<Example>
+<br/>
+<br/>
+<br/>
+<br/>
+效果：
+
+<!-- ![Image text](../../public/1.png) -->
+<img src="../../public/1.png" width="500" />
+
+</Example>
+
+</Block>
+
+
 1.初始化
 
 2.重设一组焦点元素
