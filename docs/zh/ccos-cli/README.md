@@ -137,32 +137,10 @@ MacBook-Pro:~ username$ ccos init mydemo
 
 <br/>
 
-进入工程目录，执行以下命令可开始你的工作。
-```bash
-# 编译开发环境，自动打开桌面浏览器
-npm run start OR npm run dev
-
-# 实时监听文件修改，自动刷新桌面浏览器
-npm run watch
-
-# 构建生产目录，默认为dist
-npm run build
-
-# 上传生产代码，默认目录为dist
-npm run upload
-
-# 一键打包上传
-npm run deploy
-```
-<br/>
-
-## 配置文件
-
-__通用配置文件__
+修改配置文件，默认只支持你通过ftp协议上传静态文件，否则无法使用上传功能
 
 文件路径：`config/index.js`
 
-文件内容：
 ```js
 'use strict'
 
@@ -170,10 +148,11 @@ const path = require('path')
 
 module.exports = {
     dev: {
+        //请输入您http服务器信息
         ftpConnection: {
-            host: "172.20.135.54",
-            user: "你的账号",
-            password: "你的密码"
+            host: "xx.xx.xx.xx",  //如172.20.135.54
+            user: "您的账号", //appuser
+            password: "您的密码" 
         },
         serverDomain: 'beta.webapp.skysrt.com',
         serverDir: 'fyb/aaa', //只支持已存在目录下创建一层目录
@@ -197,11 +176,41 @@ module.exports = {
 }
 ```
 
-__fis3配置文件__
+:::warning
+1. 请先填写您的http服务器信息，否则无法连接服务器；
+2. 请注意serverDir配置项的用法，请不要在fyb目录下提前创建aaa目录，工具会自动创建该目录，如存在aaa目录则会导致上传失败；
+3. 暂只支持在fyb目录下创建一级目录，不支持常见多级目录，如fyb/aaa/bbb则不支持。
+:::
+
+进入工程目录（注意不是src目录），执行以下命令开始你的工作吧。
+```bash
+# 编译开发环境，自动打开桌面浏览器
+npm run dev
+OR
+npm start
+
+# 实时监听文件修改，自动刷新桌面浏览器
+npm run watch
+
+# 构建生产目录，默认为dist
+npm run build
+
+# 上传生产代码，默认目录为dist
+npm run upload
+
+# 一键打包上传
+npm run deploy
+```
+<br/>
+
+## 自定义构建
+
+
+__fis3构建配置文件__
 
 文件路径：`src/fis-conf.js`
 
-__webpack配置文件__
+__webpack构建配置文件__
 
 文件路径：`webpack.config.js`
 
