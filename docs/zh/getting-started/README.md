@@ -36,15 +36,15 @@
 
 ### 直接用`<script>`引入
 
-直接下载并用`<script>`标签引入`ccsdk.js`，`ccApp`会被注册为一个全局变量。
+直接下载并用`<script>`标签引入`ccsdk.js`[[使用文档]](/zh/other/)，`ccApp`会被注册为一个全局变量。
 
 下载地址：[Common开发版本](https://beta.webapp.skysrt.com/fyb/other/cdn/ccsdk-common-1.0.js) | [Lite开发版本](https://beta.webapp.skysrt.com/fyb/other/cdn/ccsdk-1.0.js)
 
 
 ::: tip 
-Common版本集成了`ccmap插件`和`jQuery`内容, Lite版本则不集成。
-如单独使用`ccmap插件`[文档链接](/zh/other/)，必须要先引入`jQuery`[下载地址](https://jquery.com/download/)，否则你将无法正常使用。<br/>
-在开发环境下不要使用压缩版本，不然你就失去了所有常见错误相关的警告！
+Common版本集成了`ccmap插件`和`jQuery`, Lite版本则不集成。
+如单独使用`ccmap插件`[[使用文档]](/zh/other/)，必须要先引入`jQuery`[下载地址](https://jquery.com/download/)，否则你将无法正常使用ccmap。<br/>
+在开发环境下不要使用压缩版本，否则你就失去了所有常见错误相关的警告！
 :::
 
 <br/>

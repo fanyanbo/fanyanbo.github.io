@@ -176,10 +176,10 @@ module.exports = {
 }
 ```
 
-:::warning
-1. 请先填写您的http服务器信息，否则无法连接服务器；
-2. 请注意serverDir配置项的用法，请不要在fyb目录下提前创建aaa目录，工具会自动创建该目录，如存在aaa目录则会导致上传失败；
-3. 暂只支持在fyb目录下创建一级目录，不支持常见多级目录，如fyb/aaa/bbb则不支持。
+::: warning
+1. <font size=3 color=#f00>请先填写您的http服务器信息，否则无法连接服务器；</font>
+2. <font size=3 color=#f00>请注意serverDir配置项的用法，请不要在fyb目录下提前创建aaa目录，工具会自动创建，如存在aaa目录则会导致上传失败；</font>
+3. <font size=3 color=#f00>暂只支持在fyb目录下创建一级目录，不支持常见多级目录，如fyb/aaa/bbb则不支持。</font>
 :::
 
 进入工程目录（注意不是src目录），执行以下命令开始你的工作吧。

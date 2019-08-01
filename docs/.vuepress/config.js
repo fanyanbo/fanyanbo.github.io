@@ -55,7 +55,7 @@ module.exports = {
     sidebarGroupOrder: [
       'getting-started',
       'ccos-cli',
-      'api',
+      'ccsdk',
       'other'
     ],
     configureWebpack: {

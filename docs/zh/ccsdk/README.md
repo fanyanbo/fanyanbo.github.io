@@ -1,8 +1,8 @@
-# 接口定义
+# API 定义
 
-### 接口调用说明
+### API 调用说明
 
-所有接口通过`ccApp`对象来调用。
+所有 API 通过`ccApp`对象来调用，请注意某些 API 需要在`deviceready`后才能调用成功。
 
 ### 参数
 
@@ -24,7 +24,38 @@
 
 <br/>
 
-## 接口汇总
+### 提前了解几个重要的 API
+
+<a><font size=4>`ccApp.exitPage()`</font></a>
+
+__接口说明:__ 退出当前网页<br/>
+
+<a><font size=4>`ccApp.bindEvent(eventName, callback)`</font></a> 
+
+__接口说明:__ 用来注册监听相关事件，是重要的逻辑处理节点<br/>
+__参数说明：__ <br/>
+eventName: 事件名称，见下表<br/>
+callback: 回调函数 <br/>
+
+| 事件名称 | 功能说明 | 是否在deviceready后调用 | 权限等级 |
+| :-: | :-: | :-: | :-: |
+| deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 否 | 低 |
+| resume | 同Android Activity的resume生命周期回调，回到活动状态时触发该事件 | 否 | 低 |
+| pause | 同Android Activity的pause生命周期回调，变成非活动状态时触发该事件 | 否 | 低 |
+| backbutton | 监听返回键弹起时触发 | 否 | 高 |
+| backbuttondown | 监听返回键按下时触发 | 否 | 高 |
+| homebutton | 监听主页键按下时触发 | 否 | 高 |
+| menubutton | 监听菜单键按下时触发 | 否 | 高 |
+
+::: tip
+__`1.监听deviceready事件还可以用：ccApp.deviceReady(callback)，等同于ccApp.bindEvent('deviceready', callback)`__
+
+__`2.当监听主页、返回等按键时，酷开系统则将控制权交给网页处理，请务必考虑好退出网页逻辑，否则网页无法退出，严重影响用户体验甚至引发投诉`__
+:::
+
+<br/>
+
+## API 汇总
 
 | 模块划分 | 调用方法 | 功能说明 | 权限等级 |
 | :-: | :-: | :-: | :-: | :-: |
