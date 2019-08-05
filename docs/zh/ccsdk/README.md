@@ -26,11 +26,13 @@
 
 ### 提前了解几个重要的 API
 
-<a><font size=4>`ccApp.exitPage()`</font></a>
+<a href="#"><font size=5>ccApp.exitPage()</font></a>
 
-__接口说明:__ 退出当前网页<br/>
+__接口说明:__ 退出当前网页
+<br/>
+<br/>
 
-<a><font size=4>`ccApp.bindEvent(eventName, callback)`</font></a> 
+<a href="#"><font size=5>ccApp.bindEvent(eventName, callback)</font></a> 
 
 __接口说明:__ 用来注册监听相关事件，是重要的逻辑处理节点<br/>
 __参数说明：__ <br/>
@@ -40,12 +42,12 @@ callback: 回调函数 <br/>
 | 事件名称 | 功能说明 | 是否在deviceready后调用 | 权限等级 |
 | :-: | :-: | :-: | :-: |
 | deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 否 | 低 |
-| resume | 同Android Activity的resume生命周期回调，回到活动状态时触发该事件 | 否 | 低 |
-| pause | 同Android Activity的pause生命周期回调，变成非活动状态时触发该事件 | 否 | 低 |
+| resume | 同Android Activity的resume生命周期回调，网页回到前台时触发该事件 | 否 | 低 |
+| pause | 同Android Activity的pause生命周期回调，网页移到后台时触发该事件 | 否 | 低 |
 | backbutton | 监听返回键弹起时触发 | 否 | 高 |
 | backbuttondown | 监听返回键按下时触发 | 否 | 高 |
-| homebutton | 监听主页键按下时触发 | 否 | 高 |
-| menubutton | 监听菜单键按下时触发 | 否 | 高 |
+| homebutton | 监听按主页键弹起时触发 | 否 | 高 |
+| menubutton | 监听按菜单键弹起时触发 | 否 | 高 |
 
 ::: tip
 __`1.监听deviceready事件还可以用：ccApp.deviceReady(callback)，等同于ccApp.bindEvent('deviceready', callback)`__
