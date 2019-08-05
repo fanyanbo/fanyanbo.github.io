@@ -35,6 +35,6 @@ ccos-cli 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8.9.4。
 
 <br>
 
-<Button type="light" to="/getting-started/">开始出发</Button>
+<Button type="light" to="/zh/getting-started/">开始出发</Button>
 
 </Section>
