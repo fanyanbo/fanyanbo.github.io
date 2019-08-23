@@ -26,28 +26,31 @@
 
 ### 提前了解几个重要的 API
 
-<a href="#"><font size=5>ccApp.exitPage()</font></a>
+<a href="#"><font size=5>ccApp.exitPage(Object obj)</font></a>
 
 __接口说明:__ 退出当前网页
 <br/>
 <br/>
 
-<a href="#"><font size=5>ccApp.bindEvent(eventName, callback)</font></a> 
+<a href="#"><font size=5>ccApp.bindEvent(Object obj)</font></a> 
 
 __接口说明:__ 用来注册监听相关事件，是重要的逻辑处理节点<br/>
 __参数说明：__ <br/>
-eventName: 事件名称，见下表<br/>
-callback: 回调函数 <br/>
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| eventName | `String` |  | 是 | 事件名称，具体见下表 |
+| onReceive | `Function` |  | 是 | 事件回调函数 |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
-| 事件名称 | 功能说明 | 是否在deviceready后调用 | 权限等级 |
+| 事件名称 | 功能说明 | 权限等级 |
 | :-: | :-: | :-: | :-: |
-| deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 否 | 低 |
-| resume | 同Android Activity的resume生命周期回调，网页回到前台时触发该事件 | 否 | 低 |
-| pause | 同Android Activity的pause生命周期回调，网页移到后台时触发该事件 | 否 | 低 |
-| backbutton | 监听返回键弹起时触发 | 否 | 高 |
-| backbuttondown | 监听返回键按下时触发 | 否 | 高 |
-| homebutton | 监听按主页键弹起时触发 | 否 | 高 |
-| menubutton | 监听按菜单键弹起时触发 | 否 | 高 |
+| deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 低 |
+| resume | 同Android Activity的resume生命周期回调，网页回到前台时触发该事件 | 低 |
+| pause | 同Android Activity的pause生命周期回调，网页移到后台时触发该事件 | 低 |
+| backbutton | 监听返回键弹起时触发 | 高 |
+| backbuttondown | 监听返回键按下时触发 | 高 |
+| homebutton | 监听按主页键弹起时触发 | 高 |
+| menubutton | 监听按菜单键弹起时触发 | 高 |
 
 ::: tip
 __`1.监听deviceready事件还可以用：ccApp.deviceReady(callback)，等同于ccApp.bindEvent('deviceready', callback)`__
@@ -59,34 +62,32 @@ __`2.当监听主页、返回等按键时，酷开系统则将控制权交给网
 
 ## API 汇总
 
-| 模块划分 | 调用方法 | 功能说明 | 权限等级 |
-| :-: | :-: | :-: | :-: | :-: |
+| 模块划分 | 调用方法 | 功能说明 | deviceready后调用| 权限等级 |
+| :- | :- | :- | :-: | :-: |
+| 系统接口 | deviceReady | 监听设备是否准备好，有些接口需要在ready后调用 | 否 | 
 | 系统接口 | <a href="#1" name="_1"> getVideoSource </a> | 获取设备视频源 `tencent | iqiyi` |  |
 | 系统接口 | <a href="#2" name="_2"> getAppInfo </a> | 获取`app`相关信息 |  |
 | 系统接口 | <a href="#3" name="_3">getProperties </a> | 获取属性|  |
-| 系统接口 | addUSBChangedListener | `USB`状态事件监听 |  |
-| 系统接口 | removeUSBChangedListener | 移除`USB`状态事件监听 |  |
-| 系统接口 | startBlueToothSetting | 启动蓝牙设置 |  |
-| 系统接口 | startLocalMedia | 启动本地媒体 |  |
-| 系统接口 |  <a href="#19" name="_19">startAppX</a> | 启动酷开小程序页 |  |
-| 系统接口 | startSourceList | 启动信号源|  |
-| 系统接口 | startSystemUpgrade | 启动升级设置 |  |
-| 系统接口 | startTVSetting | 启动电视设置 |  |
-| 系统接口 | startNetSetting | 启动网络设置页 |  |
+| 系统接口 | <a href="#24" name="_24">addStatusChangedListener</a> | 添加`USB|网络|用户登录|支付|下载`等状态变化监听 |  |
+| 系统接口 | <a href="#25" name="_25">removeStatusChangedListener</a> | 移除状态变化监听 |  |
+| 系统接口 | <a href="#26" name="_26">startBlueToothSetting</a>  | 启动蓝牙设置 |  |
+| 系统接口 | <a href="#27" name="_27">startLocalMedia</a>  | 启动本地媒体 |  |
+| 系统接口 | <a href="#28" name="_28">startSystemUpgrade</a>  | 启动升级设置 |  |
+| 系统接口 | <a href="#29" name="_29">startTVSetting</a>  | 启动电视设置 |  |
+| 系统接口 | <a href="#30" name="_30">startNetSetting</a>  | 启动网络设置 |  |
+| 系统接口 | <a href="#19" name="_19">startAppX</a> | 启动酷开小程序页 |  |
+| 系统接口 | <a href="#23" name="_23">startToast</a> | 启动显示弹窗|  |
 | 系统接口 | startCommonNormalAction | 启动传参`action`页面 |  |
-| 系统接口 | startHomeTab | 跳转主页指定`tab` |  |
-| 系统接口 | startHomeCommonList | 启动主页二级列表页 |  |
-| 系统接口 | startByPackName | 包名方式启动 |  |
 | 网络接口 | <a href="#4" name="_4">getNetworkInfo </a>  | 获取网络相关信息 |  |
-| 网络接口 | addNetChangedListener | 网络状态变更事件监听|  |
-| 网络接口 | removeNetChangedListener | 移除网络状态变更事件监听|  |
+| 网络接口 | <a href="#12" name="_12">addNetChangedListener </a> | 添加网络状态变化事件监听|  |
+| 网络接口 | <a href="#12" name="_12">removeNetChangedListener </a> | 移除网络状态变化事件监听|  |
 | 下载接口 | startOrCreateDownloadTask | 启动apk`没有安装的话，启动下载一个任务` |  |
 | 下载接口 | createDownloadTask | 直接下载任务 |  |
 | 下载接口 | pauseDownloadTask | 暂停下载接口 |  |
 | 下载接口 | resumeDownloadTask | 恢复下载接口|  |
 | 下载接口 | deleteDownloadTask | 删除下载接口|  |
-| 下载接口 | addAppTaskListener | APK下载事件监听|  |
-| 下载接口 | removeAppTaskListener | 移除APK下载事件监听|  |
+| 下载接口 | addDownloadChangedListener | 添加APK下载事件监听|  |
+| 下载接口 | removeDownloadChangedListener | 移除APK下载事件监听|  |
 | 多媒体接口 | <a href="#16" name="_16">startVideoPlayer </a>| 启动播放器 |  |
 | 多媒体接口 | <a href="#17" name="_17">addVideoPlayerListener</a> | 添加播放器事件监听 |  |
 | 多媒体接口 | <a href="#18" name="_18">removeVideoPlayerListener</a> | 移除播放器事件监听|  |
@@ -95,28 +96,34 @@ __`2.当监听主页、返回等按键时，酷开系统则将控制权交给网
 | 设备接口 | <a href="#7" name="_7">getDeviceLocation </a> | 获取设备位置|  |
 | 用户接口 | <a href="#8" name="_8">getUserInfo </a>  | 获取用户信息 |  |
 | 用户接口 | <a href="#9" name="_9">getUserAccessToken </a>  | 获取用户token|  |
-| 用户接口 | <a href="#10" name="_10">startLogout </a>  | 退出用户登录|  |
+| 用户接口 | <a href="#10" name="_10">setUserLogout </a>  | 退出用户登录|  |
+| 用户接口 | <a href="#9" name="_9">startUserLogin </a>  | 启动用户登录页|  |
+| 用户接口 | <a href="#10" name="_10">isUserLogin </a>  | 判断用户是否登录|  |
+| 用户接口 | <a href="#9" name="_9">addUserLoginChangedListener </a>  | 添加用户登录状态变化事件监听|  |
+| 用户接口 | <a href="#10" name="_10">removeUserLoginChangedListener </a>  | 移除用户登录状态变化事件监听|  |
 | 日志接口 | <a href="#11" name="_11">submitDataCollection </a> | 提交至酷开大数据【内部使用，待测】|  |
 | 日志接口 | <a href="#12" name="_12">notifyJSMessage </a> | 私有信息通知【内部使用，待测】|  |
-| 支付接口 | pauseDownloadTask | 暂停下载接口 |  |
-| 支付接口 | resumeDownloadTask | 恢复下载接口|  |
-| 支付接口 | deleteDownloadTask | 删除下载接口|  |
+| 支付接口 | <a href="#12" name="_12">startPay </a> | 启动支付页面 |  |
+| 支付接口 | <a href="#12" name="_12">addPayChangedListener </a> | 添加支付状态变化事件监听|  |
+| 支付接口 | <a href="#12" name="_12">removePayChangedListener </a> | 移除支付状态变化事件监听|  |
 | 广告接口 | <a href="#13" name="_13">getAdData </a>  | 获取广告数据【内部使用，待测】|  |
 | 广告接口 | <a href="#14" name="_14">submitAdData </a>  | 提交广告监测数据【内部使用，待测】|  |
 | 广告接口 | <a href="#15" name="_15">submitThirdAdData </a>  | 提交第三方广告监测数据【内部使用，待测】|  |
+| 主页接口 | startHomeTab | 跳转主页指定`tab` |  |
+| 主页接口 | startHomeCommonList | 启动主页二级列表页 |  |
 | 影视接口 | addAppTaskListener | APK下载事件监听|  |
 | 影视接口 | removeAppTaskListener | 移除APK下载事件监听|  |
 | 商城接口 | removeAppTaskListener | 移除APK下载事件监听|  |
 | 商城接口 | removeAppTaskListener | 移除APK下载事件监听|  |
-| 应用接口 | removeAppTaskListener | 移除APK下载事件监听|  |
-| 应用接口 | removeAppTaskListener | 移除APK下载事件监听|  |
-| 语音接口 | removeAppTaskListener | 移除APK下载事件监听|  |
-| 语音接口 | removeAppTaskListener | 移除APK下载事件监听|  |
+| 应用接口 | <a href="#12" name="_12">startMyApps</a> | 启动我的应用|  |
+| 应用接口 | <a href="#12" name="_12">startAppStoreDetail</a> | 启动应用详情页|  |
+| 语音接口 | <a href="#12" name="_12">addVoiceListener</a>  | 添加语音事件监听|  |
+| 语音接口 | <a href="#12" name="_12">removeVoiceListener</a>  | 移除语音事件监听|  |
 | 广播接口 | <a href="#20" name="_20">addGlobalBroadcastListener </a> | 添加android全局广播监听|  |
 | 广播接口 | <a href="#21" name="_21">removeGlobalBroadcastListener </a> | 移除android全局广播|  |
 | 广播接口 | <a href="#22" name="_22">sendGlobalBroadcast </a> | 发送android全局广播|  |
-| 页面接口 | removeAppTaskListener | 移除APK下载事件监听|  |
-| 页面接口 | removeAppTaskListener | 移除APK下载事件监听|  |
+| 页面接口 | bindEvent | 绑定监听页面相关事件|  |
+| 页面接口 | exitPage | 退出页面|  |
 
 <br/>
 
@@ -371,7 +378,7 @@ __获取用户token__
 
 <br/>
 
-<a name = "10" href="#_10"><font size=5>ccApp.startLogout(Object obj)</font></a>
+<a name = "10" href="#_10"><font size=5>ccApp.setUserLogout(Object obj)</font></a>
 
 __退出用户登录__
 
@@ -382,11 +389,11 @@ __退出用户登录__
 示例代码
 
 ```js
-  ccApp.startLogout({
+  ccApp.setUserLogout({
     success(res) {
       Console.log(JSON.stringify(res))
       /* 结果输出
-      {"errMsg":"startLogout:ok"}
+      {"errMsg":"setUserLogout:ok"}
       */
     }
   })
@@ -635,19 +642,21 @@ __启动酷开小程序页__
 
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| success | `Function` |  | 否 | 接口回调函数 |
+| url | `String` |  | 是 | 小程序地址 |
+| type | `String` | `'startService'` | 否 | `'startActivity'|vstartService'`|
+| preload | `String` | `'false'` | 否 | 是否预加载 `'false'|'true'`|
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 
 ```js
-  ccApp.removeVideoPlayerListener({
-    success: function(res) {
-      Console.log(JSON.stringify(res))
-      /* 结果输出
-      {"errMsg":"removeVideoPlayerListener:ok"}
-      */
-    }
-  })
+	ccApp.startAppX({
+		preload: 'true',
+		url: 'appx://com.coocaa.appx.member.guide',
+		success: function(res) {
+			console.log(JSON.stringify(res));
+		}
+	});
 ```
 <br/>
 
@@ -724,7 +733,199 @@ __发送android全局广播__
     }
   })
 ```
+<a name = "23" href="#_23"><font size=5>ccApp.startToast(Object obj)</font></a>
 
+__启动显示弹窗，暂只支持显示整张图片__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| url | `String` | | 是 | 图片地址|
+| top | `String` | `'598'` | 否 | 距离顶部距离 |
+| left | `String` | `'800'` | 否 | 距左边距离|
+| width | `String` | `'725'` | 否 | 弹窗宽度|
+| heigth | `String` | `'180'` | 否 | 弹窗高度|
+| time | `String` | `'5000'` | 否 | 弹窗显示时长|
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startToast({
+    top: '598',
+    left: '485',
+    width: '724',
+    height: '110',
+    time: '5000',
+    url: 'http://172.20.155.51/uploads/20190521/20190521171059879774.webp',success: function(res) {
+      console.log(JSON.stringify(res));
+    }
+  });
+```
+<br/>
+
+<a name = "24" href="#_24"><font size=5>ccApp.addStatusChangedListener(Object obj)</font></a>
+
+__添加USB|网络|登录|支付|下载等状态变化监听【待测】__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| user | `String` | `'false'` | 否 | 监听用户登录状态变化 |
+| pay | `String` | `'false'` | 否 | 监听支付状态变化|
+| usb | `String` | `'false'` | 否 | 监听对接usb状态变化|
+| download | `String` | `'false'` | 否 | 监听应用下载状态变化|
+| net | `String` | `'false'` | 否 | 监听网络状态变化|
+| onReceive | `Function` |  | 是 | 获取数据回调函数 |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.addStatusChangedListener({
+    net: 'true',
+    usb: 'true',
+    user: 'true',
+    pay: 'true',
+    download: 'true',
+    onReceive: function(res) {
+      console.log(JSON.stringify(res));
+    },
+    success: function(res) {
+      console.log(JSON.stringify(res));
+    }
+  })
+```
+<br/>
+
+<a name = "25" href="#_25"><font size=5>ccApp.removeStatusChangedListener(Object obj)</font></a>
+
+__移除状态变化监听__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| user | `String` | `'false'` | 否 | 移除用户登录状态监听 |
+| pay | `String` | `'false'` | 否 | 移除支付状态监听|
+| usb | `String` | `'false'` | 否 | 移除外接usb状态监听|
+| download | `String` | `'false'` | 否 | 移除应用下载状态监听|
+| net | `String` | `'false'` | 否 | 移除网络状态监听|
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.removeStatusChangedListener({
+    usb: 'true',
+    success: function(res) {
+      console.log(JSON.stringify(res))
+    }
+  })
+```
+<br/>
+<a name = "26" href="#_26"><font size=5>ccApp.startBlueToothSetting(Object obj)</font></a>
+
+__启动蓝牙设置__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startBlueToothSetting({
+    success: function(res) {
+      console.log(JSON.stringify(res))
+      /* 结果输出
+      {"errMsg":"startBlueToothSetting:ok"}
+      */
+    }
+  })
+```
+
+<br/>
+<a name = "27" href="#_27"><font size=5>ccApp.startLocalMedia(Object obj)</font></a>
+
+
+__启动本地媒体__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startLocalMedia({
+    success: function(res) {
+      console.log(JSON.stringify(res))
+      /* 结果输出
+      {"errMsg":"startLocalMedia:ok"}
+      */
+    }
+  })
+```
+<br/>
+<a name = "28" href="#_28"><font size=5>ccApp.startSystemUpgrade(Object obj)</font></a>
+
+__启动升级设置__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startSystemUpgrade({
+    success: function(res) {
+      console.log(JSON.stringify(res))
+      /* 结果输出
+      {"errMsg":"startSystemUpgrade:ok"}
+      */
+    }
+  })
+```
+<br/>
+<a name = "29" href="#_29"><font size=5>ccApp.startTVSetting(Object obj)</font></a>
+
+__启动电视设置__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startTVSetting({
+    success: function(res) {
+      console.log(JSON.stringify(res))
+      /* 结果输出
+      {"errMsg":"startTVSetting:ok"}
+      */
+    }
+  })
+```
+<br/>
+<a name = "30" href="#_30"><font size=5>ccApp.startNetSetting(Object obj)</font></a>
+
+__启动网络设置__
+
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+
+```js
+  ccApp.startNetSetting({
+    success: function(res) {
+      console.log(JSON.stringify(res))
+      /* 结果输出
+      {"errMsg":"startNetSetting:ok"}
+      */
+    }
+  })
+```
 
 
 <br/>
