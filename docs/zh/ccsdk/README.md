@@ -14,7 +14,7 @@
 
 - `complete`：接口调用完成时执行的回调函数，无论成功或失败都会执行。
 
-以上几个函数返回值都带有一个参数，类型为对象。
+以上`success`和`fail`回调函数都带有一个参数，类型为对象。
 
 其中除了每个接口本身返回的数据之外，还有一个通用属性`errMsg`，其值格式如下：
 
@@ -22,19 +22,14 @@
 
 调用失败时：其值为具体错误信息
 
-<br/>
+</br>
 
-### 提前了解几个重要的 API
+### 网页页面和按键事件
 
-<a href="#"><font size=5>ccApp.exitPage(Object obj)</font></a>
-
-__接口说明:__ 退出当前网页
-<br/>
-<br/>
+基于酷开系统的网页开发者需重点关注以下API，它用来注册监听网页页面事件和遥控器按键事件，是重要的代码逻辑处理节点，但并非强制使用。
 
 <a href="#"><font size=5>ccApp.bindEvent(Object obj)</font></a> 
 
-__接口说明:__ 用来注册监听相关事件，是重要的逻辑处理节点<br/>
 __参数说明：__ <br/>
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
@@ -42,7 +37,7 @@ __参数说明：__ <br/>
 | onReceive | `Function` |  | 是 | 事件回调函数 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
-| 事件名称 | 功能说明 | 权限等级 |
+| 事件名称 | 事件说明 | 权限等级 |
 | :-: | :-: | :-: | :-: |
 | deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 低 |
 | resume | 同Android Activity的resume生命周期回调，网页回到前台时触发该事件 | 低 |
@@ -55,10 +50,13 @@ __参数说明：__ <br/>
 ::: tip
 __`1.监听deviceready事件还可以用：ccApp.deviceReady(callback)，等同于ccApp.bindEvent('deviceready', callback)`__
 
-__`2.当监听主页、返回等按键时，酷开系统则将控制权交给网页处理，请务必考虑好退出网页逻辑，否则网页无法退出，严重影响用户体验甚至引发投诉`__
+__`2.当监听遥控器主页、返回等按键时，酷开系统则将键值处理交给网页，请开发者务必考虑好网页退出逻辑，否则网页无法退出，这将严重影响用户体验甚至引发投诉。退出网页请参见ccApp.exitPage()接口`__
 :::
 
 <br/>
+<br/>
+
+
 
 ## API 汇总
 
@@ -123,7 +121,7 @@ __`2.当监听主页、返回等按键时，酷开系统则将控制权交给网
 | 广播接口 | <a href="#21" name="_21">removeGlobalBroadcastListener </a> | 移除android全局广播|  |
 | 广播接口 | <a href="#22" name="_22">sendGlobalBroadcast </a> | 发送android全局广播|  |
 | 页面接口 | bindEvent | 绑定监听页面相关事件|  |
-| 页面接口 | exitPage | 退出页面|  |
+| 页面接口 | <a href="#31" name="_31">exitPage </a> | 退出页面|  |
 
 <br/>
 
@@ -926,6 +924,12 @@ __启动网络设置__
     }
   })
 ```
+<br/>
+<a name = "31" href="#_31"><font size=5>ccApp.exitPage(Object obj)</font></a>
+
+__退出当前网页__ 
+
+<br/>
 
 
 <br/>

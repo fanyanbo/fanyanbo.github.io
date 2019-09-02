@@ -42,7 +42,9 @@ module.exports = {
     // Optional options for generating "Edit this page" link
 
     // if your docs are in a different repo from your main project:
-    docsRepo: 'sqrthree/vuepress-theme-api',
+    // docsRepo: 'sqrthree/vuepress-theme-api',
+    docsRepo: 'fanyanbo/fanyanbo.github.io',
+    editLinkText: 'contact author',
     // if your docs are not at the root of the repo:
     docsDir: 'docs',
     // if your docs are in a specific branch (defaults to 'master'):

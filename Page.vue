@@ -82,12 +82,14 @@ export default {
           ? docsRepo
           : `https://github.com/${docsRepo}`
 
-        return (
-          base.replace(/\/$/, '') +
-          `/edit/${docsBranch}` +
-          (docsDir ? '/' + docsDir.replace(/\/$/, '') : '') +
-          path
-        )
+        // modified by fyb
+        return base
+        // return (
+        //   base.replace(/\/$/, '') +
+        //   `/edit/${docsBranch}` +
+        //   (docsDir ? '/' + docsDir.replace(/\/$/, '') : '') +
+        //   path
+        // )
       }
     },
     editLinkText() {

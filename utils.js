@@ -40,7 +40,7 @@ const matchFileName = path => {
 
 export function title(str) {
   const regex = /(?:(?:(\s?(?:^|[.\(\)!?;:"-])\s*)(\w))|(\w))(\w*[’']*\w*)/g
-  const specials = ['http', 'https', 'cli', 'api']
+  const specials = ['http', 'https', 'cli', 'api', 'pc']
 
   return str
     .toLowerCase()
