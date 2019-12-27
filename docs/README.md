@@ -4,7 +4,7 @@ title: 酷开网页开发技术文档
 description: 不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。
 actionText: 开始出发
 actionLink: /zh/getting-started/
-footer: MIT Licensed | Copyright © 2018-present Coocaa, Made by [@sqrthree](https://github.com/sqrthree), Power by [vuepress](https://github.com/vuejs/vuepress).
+footer: MIT Licensed | Copyright © 2018-present Coocaa, Open Source on [GitHub](https://github.com/sqrthree/vuepress-theme-api), Power by [vuepress](https://github.com/vuejs/vuepress).
 ---
 
 ## 像数 1、2、3 一样的简单
