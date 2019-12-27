@@ -98,14 +98,14 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 用户接口 | <a href="#5_4" name="_5_4">getLoginStatus </a>  | 获取用户登录状态| 是 | 低
 | 用户接口 | <a href="#5_5" name="_5_5">addLoginChangedListener </a>  | 添加用户登录状态变化事件监听| 否 | 低
 | 用户接口 | <a href="#5_6" name="_5_6">removeLoginChangedListener </a>  | 移除用户登录状态变化事件监听| 否 | 低
-| 日志接口 | <a href="#6_0" name="_6_0">logDataCollection </a> | 日志提交酷开大数据【待测】| 否 | 高
+| 日志接口 | <a href="#6_0" name="_6_0">logDataCollection </a> | 日志提交酷开大数据 | 否 | 高
 | 日志接口 | <a href="#6_1" name="_6_1">sendMessageFromJS </a> | 发送消息到Android App(需集成SystemWebViewSDK) | 否 | 高
 | 支付接口 | <a href="#7_0" name="_7_0">startPay </a> | 启动支付页面 | 是 | 高
 | 支付接口 | <a href="#7_1" name="_7_1">addPayChangedListener </a> | 添加支付状态变化事件监听| 否 | 低
 | 支付接口 | <a href="#7_2" name="_7_2">removePayChangedListener </a> | 移除支付状态变化事件监听| 否 | 低
-| 广告接口 | <a href="#8_0" name="_8_0">getAdData </a>  | 获取广告数据【内部使用，待测】| 是 | 高
-| 广告接口 | <a href="#8_1" name="_8_1">adDataCollection </a>  | 采集广告监测数据【内部使用，待测】| 是 | 高
-| 广告接口 | <a href="#8_2" name="_8_2">thirdAdDataCollection </a>  | 采集第三方广告监测数据【内部使用，待测】| 是 | 高
+| 广告接口 | <a href="#8_0" name="_8_0">getAdData </a>  | 获取广告数据 | 是 | 高
+| 广告接口 | <a href="#8_1" name="_8_1">adDataCollection </a>  | 采集广告监测数据 | 是 | 高
+| 广告接口 | <a href="#8_2" name="_8_2">thirdAdDataCollection </a>  | 采集第三方广告监测数据 | 是 | 高
 | 主页接口 | <a href="#9_0" name="_9_0">startHomeTab</a> | 跳转主页tab页 | 否 | 低
 | 主页接口 | <a href="#9_1" name="_9_1">startHomeSecondList</a> | 跳转主页二级列表页 | 否 | 低
 | 主页接口 | <a href="#9_2" name="_9_2">startHomeSpecial</a> | 跳转主页专题页 | 否 | 低
@@ -410,11 +410,11 @@ __启动Android页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | type | `String` |  | 是 | `action|class|uri`|
-| actionName | `String` |  | 否 | action名称 |
-| packageName | `String` |  | 是 | 包名 |
-| className | `String` | `'false'` | 否 | 类名 |
-| uri | `String` |  | 否 |  |
-| params | `String` |  | 是 | 参数 |
+| actionName | `String` |  | 是 | type为action时必填 |
+| packageName | `String` |  | 是 | type为class时必填 |
+| className | `String` |  | 是 | type为class时必填 |
+| uri | `String` |  | 是 | type为uri时必填 |
+| params | `Array` |  | 否 | 对象数组，如[{'key1': 'value1'}, {'key2': 'value2'}] |
 | extra | `String` |  | 否 | 额外参数 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
