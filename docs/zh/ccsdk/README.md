@@ -360,14 +360,14 @@ __启动酷开小程序页__
 | :-: | :-: | :-: | :-: | :-: |
 | url | `String` |  | 是 | 小程序地址 |
 | type | `String` | `'startService'` | 否 | `'startActivity'|'startService'`|
-| preload | `String` | `'false'` | 否 | 是否预加载 `'false'|'true'`|
+| preload | `Boolean` | `false` | 否 | 是否预加载 `false|true`|
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 
 ```js
 	ccApp.startAppX({
-		preload: 'true',
+		preload: true,
 		url: 'appx://com.coocaa.appx.member.guide',
 		success: function(res) {
 			console.log(JSON.stringify(res))
@@ -420,7 +420,14 @@ __启动Android页面__
 
 示例代码
 ```js
-  //todo
+  ccApp.startCommonPage({
+		type: 'action',
+		actionName: 'android.settings.ADD_ACCOUNT_SETTINGS',
+		params: [{ 'needFinish': true }],
+		success: function(res) {
+			console.log(res)
+		}
+	})
 ```
 <br/>
 
@@ -677,7 +684,9 @@ __移除下载状态变化事件监听__
 __启动播放器【待测】__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| channel | `String` |  | 是 | `browser|movie`,分别表示浏览器内置播放器，影视播放器|
+| channel | `String` |  | 是 | `browser|service|movie`,分别表示浏览器内置播放器，影视播放器, 影视播放器（旧，不推荐）|
+| actionName | `String` |  | 是| channel为service时填写 |
+| params | `Array` | `[{}]` | 是 | channel为service时填写，例`[{'key1': 'value1'}]` |
 | title | `String` |  | 否 | channel为movie时填写 |
 | url | `String` |  | 是 | channel为movie时填写 |
 | needParse | `String` | `'false'` | 否 | channel为movie时填写`'true'|'false'` |
@@ -694,12 +703,9 @@ __启动播放器【待测】__
 示例代码
 ```js
   ccApp.startVideoPlayer({
-    channel: 'movie',
-    url: 'http://gm-vd.coocaa.com/edb2878fvodtransgzp1253922718/
-    771febd05285890783126907326/v.f240.m3u8?t=6198a5c6&exper=0&
-    sign=08725d427cccb9d2d3214b085fa025e5',
-    title: '看过的节目去哪里找',
-    needParse: 'true',
+    channel: 'service',
+    actionName: 'coocaa.intent.player.live',
+    params: [{'url_type':'iqiyi'},{'liveType': '2'}],
     success: function(result) {
       console.log(JSON.stringify(result))
     }
@@ -1482,7 +1488,7 @@ __发送android全局广播__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | type | `String` | `android` | 否 | `android|web`|
-| action | `String` |  | 是 | `android action`|
+| action | `String` |  | 是 | `action`名称|
 | params | `Object` | `{}` | 否 | 参数 |
 | success | `Function` |  | 否 | 回调函数 |
 
