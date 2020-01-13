@@ -124,6 +124,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 框架接口 | <a href="#15_1" name="_15_1">bindEvent</a> | 绑定监听页面和遥控器按键相关事件| 否 | 低
 | 框架接口 | <a href="#15_2" name="_15_2">exitPage</a> | 退出页面| 否 | 低
 | 框架接口 | <a href="#15_3" name="_15_3">setNativeToJsBridgeMode</a> | 设置酷开系统向网页发送消息的模式| 否 | 高
+| 框架接口 | <a href="#15_4" name="_15_4">checkJsApi</a> | 判断当前客户端版本是否支持指定JS接口 | 否 | 低
 
 <br/>
 
@@ -162,9 +163,8 @@ __获取app信息__
 
 示例代码
 ```js
-  var params = ["com.tianci.user","com.tianci.movieplatform"]
   ccApp.getAppInfo({
-    pkgList: params,
+    pkgList: ["com.tianci.user","com.tianci.movieplatform"],
     success(res) {
       console.log(JSON.stringify(res))
       /* 结果输出
@@ -1565,6 +1565,27 @@ __启动用户登录页面__
     mode: 1,
     success(res) {
       console.log(JSON.stringify(res))
+    }
+  })
+```
+<br/>
+
+<a name = "15_4" href="#_15_4"><font size=5>ccApp.checkJsApi(Object obj)</font></a>
+
+__判断当前客户端版本是否支持指定JS接口__
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| jsApiList | `Array` |  | 是 | 需要检测的JS接口名称 |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+```js
+  ccApp.checkJsApi({
+    jsApiList: ['getAppInfo', 'getProperties', 'startCommonPage', 'startAppx'],
+    success(res) {
+      console.log(JSON.stringify(res))
+      // 可用的api值true，不可用为false
+      // 如：{"errMsg":"checkJsApi:ok","getAppInfo":true,"getProperties":true,    "startCommonPage":true,"startAppx":true}
     }
   })
 ```
