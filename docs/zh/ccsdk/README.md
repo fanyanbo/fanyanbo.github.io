@@ -125,12 +125,14 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 框架接口 | <a href="#15_2" name="_15_2">exitPage</a> | 退出页面| 否 | 低
 | 框架接口 | <a href="#15_3" name="_15_3">setNativeToJsBridgeMode</a> | 设置酷开系统向网页发送消息的模式| 否 | 高
 | 框架接口 | <a href="#15_4" name="_15_4">checkJsApi</a> | 判断当前客户端版本是否支持指定JS接口 | 否 | 低
+| 框架接口 | <a href="#15_5" name="_15_5">getPerformance</a> | 获取页面启动节点时间戳 | 否 | 低
 
 <br/>
 
 ### ccApp对象的属性
 | 属性名称 | 功能说明 | deviceready后调用| 权限等级 |
 | :- | :- | :- | :-: |
+| <a href="#">ccDebug</a> | 设置/获取PC模式下设备/用户/登录/应用版本等信息| 否 | 低
 | <a href="#">ccBrowser</a> | 包含浏览器版本信息| 否 | 低
 | <a href="#">ccMovieplatform</a> | 包含主页影视版本信息 | 否 | 低
 | <a href="#">ccUser</a> | 包含用户版本信息 | 否 | 低
@@ -1586,6 +1588,24 @@ __判断当前客户端版本是否支持指定JS接口__
       console.log(JSON.stringify(res))
       // 可用的api值true，不可用为false
       // 如：{"errMsg":"checkJsApi:ok","getAppInfo":true,"getProperties":true,    "startCommonPage":true,"startAppx":true}
+    }
+  })
+```
+<br/>
+
+<a name = "15_5" href="#_15_5"><font size=5>ccApp.getPerformance(Object obj)</font></a>
+
+__获取页面启动节点时间戳__
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+```js
+  ccApp.getPerformance({
+    success(res) {
+      console.log(JSON.stringify(res))
+      // 结果输出：{"errMsg":"getPerformance:ok","data":"{\"initWebViewBeforeTime\":1579169963499,\"initWebViewAfterTime\":1579169963529,\"loadUrlBeforeTime\":1579169963677,\"loadUrlStartTime\":1579169964241,\"loadUrlFinishTime\":1579169965960}"}
     }
   })
 ```

@@ -14,7 +14,7 @@
 
 - 不支持`<video> <canvas>`标签
 
-- 多`<button>`会自动寻焦，推荐使用插件：[ccmap](/zh/other/)
+- 多`<button>`会自动寻焦，推荐使用插件：[ccMap](/zh/other/)
 
 <br/>
 
@@ -42,8 +42,8 @@
 
 
 ::: tip 
-Common版本集成了`ccmap插件`和`jQuery`, Lite版本则不集成。
-如单独使用`ccmap插件`[[使用文档]](/zh/other/)，必须要先引入`jQuery`[下载地址](https://jquery.com/download/)，否则你将无法正常使用ccmap。<br/>
+Common版本集成了`ccMap插件`和`jQuery`, Lite版本则不集成。
+如单独使用`ccMap插件`[[使用文档]](/zh/other/)，必须要先引入`jQuery`[下载地址](https://jquery.com/download/)，否则你将无法正常使用ccMap。<br/>
 在开发环境下不要使用压缩版本，否则你就失去了所有常见错误相关的警告！
 :::
 
