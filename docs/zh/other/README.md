@@ -1,9 +1,9 @@
 
-# PC 调试
+# PC端调试
 
 ### 介绍
 
-在电视端进行网页开发和调试相对繁琐，建议开发者先在PC浏览器上开发调试，当功能逻辑，UI布局等完成后再在电视上测试验收，这可显著提升开发效率。
+在电视端进行网页开发调试相对繁琐，建议开发者先在PC端上进行开发调试，当网页项目的功能模块、UI布局及业务逻辑完成后再在电视上测试验收，这可显著提升开发效率。
 
 <br/>
 
@@ -70,7 +70,7 @@
 | <a href="#4" name="_4"> ccMap.add </a> | 添加需落焦元素
 | <a href="#5" name="_5"> ccMap.remove </a> | 删除落焦元素
 | <a href="#6" name="_6"> ccMap.setSupportTouch </a> | 设置是否支持触摸点击事件
-| <a href="#7" name="_7"> ccMap.setSupportClick </a> | 设置是否支持鼠标点击事件
+| <a href="#7" name="_7"> ccMap.setSupportClick </a> | 设置是否支持鼠标点击事件【暂不支持】
 | <a href="#8" name="_8"> ccMap.setDebugFlag </a> | 设置是否开启调试打印
 | <a href="#9" name="_9"> ccMap.setOnKeydownListener </a> | 设置遥控器按键监听
 | <a href="#10" name="_10"> ccMap.setFocusClass </a> | 设置元素落焦样式名称
@@ -209,13 +209,12 @@ __设置是否支持触摸点击事件__
 ```
 <br/>
 
-<a name = "7" href="#_7"><font size=5>ccMap.setSupportClick(Boolean)</font></a>
+<!-- <a name = "7" href="#_7"><font size=5>ccMap.setSupportClick(Boolean)</font></a>
 
 __设置是否支持鼠标点击事件__
 | 参数 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 |  开关 | `Boolean` | `false` | 否 | 默认不支持鼠标点击事件 |
-
 
 示例代码
 ```html
@@ -228,7 +227,7 @@ __设置是否支持鼠标点击事件__
 ```js
 	ccMap.init(".coocaa_btn", '#second', "btn-focus").setSupportClick(true)
 ```
-<br/>
+<br/> -->
 
 <a name = "8" href="#_8"><font size=5>ccMap.setDebugFlag(Boolean)</font></a>
 

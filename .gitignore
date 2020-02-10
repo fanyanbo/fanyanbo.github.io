@@ -62,3 +62,4 @@ typings/
 
 # VuePress build output
 docs/.vuepress/dist/
+.DS_Store
