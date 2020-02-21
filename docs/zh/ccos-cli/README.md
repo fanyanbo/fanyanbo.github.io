@@ -28,11 +28,10 @@ ccos-cli 是一个快速搭建基于酷开系统web项目的脚手架工具。
 ```bash
 # 安装脚手架工具
 npm install -g ccos-cli
-```
 
-:::warning
-CLI 工具假定用户对 Node.js 和相关构建工具有一定程度的了解。如果你是新手，我们建议先在不用构建工具的情况下通读文档，在熟悉相关知识之后再使用 CLI。
-:::
+# 建议使用淘宝镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
 
 <br/>
 
@@ -97,10 +96,12 @@ MacBook-Pro:~ username$ ccos init mydemo
 
   Create complete.
 
-  Tip: cd mydemo && npm install 
+  Tip: cd mydemo && cnpm install 
 ```
+
 :::warning
-按上述Tip：进入到工程目录mydemo，然后执行npm install安装本地依赖。
+Windows平台下，`npm install`可能会导致`node-sass`安装失败，建议使用`cnpm install` <br>
+cnpm设置方法：`npm install -g cnpm --registry=https://registry.npm.taobao.org`
 :::
 
 创建后使用`treer`输出目录结构如下:
