@@ -848,15 +848,16 @@ __获取设备位置__
 
 <a name = "4_3" href="#_4_3"><font size=5>ccApp.getVideoSource(Object obj)</font></a>
 
-__获取本机视频源，与后台交互细节封装在接口内。__
+__获取本机视频源__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| 公共属性 | `function` |  | 否 | `success|fail|complete`接口回调函数 |
+| 公共属性 | `function` |  | 否 | `fail|complete`接口回调函数 |
+| 公共属性 | `function` |  | 是 | `success`接口回调函数必填 |
 
 success回调函数参数 `Object res`
 | 属性 | 类型 | 说明 |
 | :-: | :-: | :-: |
-| source | `String` | `tencent|iqiyi|other` |
+| source | `String` | `tencent|iqiyi|youku|voole` |
 
 示例代码
 ```js
