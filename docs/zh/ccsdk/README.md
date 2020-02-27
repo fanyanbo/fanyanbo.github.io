@@ -90,7 +90,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 设备接口 | <a href="#4_0" name="_4_0">getMemInfo </a> | 获取存储空间信息 | 否 | 低
 | 设备接口 | <a href="#4_1" name="_4_1">getDeviceInfo </a> | 获取设备信息| 是 | 低
 | 设备接口 | <a href="#4_2" name="_4_2">getDeviceLocation </a> | 获取设备位置| 是 | 低
-| 设备接口 | <a href="#4_3" name="_4_3"> getVideoSource </a> | 获取设备视频源 `tencent | iqiyi` | 是 | 低
+| 设备接口 | <a href="#4_3" name="_4_3"> getVideoSource </a> | 获取设备视频源 | 是 | 低
 | 用户接口 | <a href="#5_0" name="_5_0">getUserInfo </a>  | 获取用户信息 | 是 | 高
 | 用户接口 | <a href="#5_1" name="_5_1">getUserAccessToken </a>  | 获取用户token| 是 | 高
 | 用户接口 | <a href="#5_2" name="_5_2">setLogout </a>  | 退出用户登录| 否 | 低
@@ -940,18 +940,18 @@ __退出用户登录__
 
 <a name = "5_3" href="#_5_3"><font size=5>ccApp.startLogin(Object obj)</font></a>
 
-__启动用户登录页面【待完善】__
+__启动用户登录页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | source | `String` | `iqiyi` | 否 | `tencent|iqiyi` |
-| tencentType | `String` |  | 是 | source为tencent时必填：`LOGIN_QQ|LOGIN_WEIXIN|TENCENT` |
+| tencentType | `String` |  | 是 | source为tencent时必填：`qq|weixin|both` |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 ```js
   ccApp.startLogin({
     source: 'tencent',
-    tencentType: 'LOGIN_QQ',
+    tencentType: 'weixin',
     success(res) {
       console.log(JSON.stringify(res))
     }
@@ -965,8 +965,15 @@ __获取用户登录状态__
 
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| sync | `Boolean` | `false` | 否 | 是否同步获取，浏览器版本要求：v2.0.73 |
+| source | `String` | `iqiyi` | 否 | `iqiyi | tencent | youku` |
+| sync | `Boolean` | `false` | 否 | 是否同步获取，浏览器v2.0.73及以上支持此属性 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+success回调函数参数 `Object res`
+| 属性 | 类型 | 说明 |
+| :-: | :-: | :-: |
+| hasLogin | `Boolean` | `true|false` |
+| tencentType | `String` | `qq|weixin|both`, source=tencent且hasLogin=false时，该属性值才有意义 |
 
 示例代码
 
