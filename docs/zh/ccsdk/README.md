@@ -857,7 +857,7 @@ __获取本机视频源__
 success回调函数参数 `Object res`
 | 属性 | 类型 | 说明 |
 | :-: | :-: | :-: |
-| source | `String` | `tencent|iqiyi|youku|voole` |
+| source | `String` | `tencent【注：腾讯源】|yinhe【注：奇艺源】|youku【注：优酷源】|voole【注：优朋源】` |
 
 示例代码
 ```js
@@ -943,7 +943,7 @@ __退出用户登录__
 __启动用户登录页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| source | `String` | `iqiyi` | 否 | `tencent|iqiyi` |
+| source | `String` | `other` | 否 | `tencent|other,other包括yinhe,youku等`|
 | tencentType | `String` |  | 是 | source为tencent时必填：`qq|weixin|both` |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
@@ -965,7 +965,7 @@ __获取用户登录状态__
 
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| source | `String` | `iqiyi` | 否 | `iqiyi | tencent | youku` |
+| source | `String` | `other` | 否 | `tencent|other` |
 | sync | `Boolean` | `false` | 否 | 是否同步获取，浏览器v2.0.73及以上支持此属性 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
