@@ -969,7 +969,7 @@ __获取用户登录状态__
 | sync | `Boolean` | `false` | 否 | 是否同步获取，浏览器v2.0.73及以上支持此属性 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
-success回调函数参数 `Object res`
+success回调函数参数 `Object res.data`
 | 属性 | 类型 | 说明 |
 | :-: | :-: | :-: |
 | hasLogin | `Boolean` | `true|false` |
@@ -981,6 +981,10 @@ success回调函数参数 `Object res`
   ccApp.getLoginStatus({
     success(res) {
       console.log(JSON.stringify(res))
+      /* 结果输出
+       {"errMsg":"getLoginStatus:ok","data":
+       {"hasLogin":true}}
+      */
     }
   })
 ```
