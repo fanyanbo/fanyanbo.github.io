@@ -40,6 +40,7 @@ __参数说明：__ <br/>
 | 事件名称 | 事件说明 | 权限等级 |
 | :-: | :-: | :-: | :-: |
 | deviceready | 等待酷开系统设备就绪，某些接口需在deviceready状态后才能调用 | 低 |
+| ccready | 等待酷开系统设备就绪和设备属性就绪 | 低 |
 | resume | 同Android Activity的resume生命周期回调，网页回到前台时触发该事件 | 低 |
 | pause | 同Android Activity的pause生命周期回调，网页移到后台时触发该事件 | 低 |
 | backbutton | 监听返回键弹起时触发 | 高 |
@@ -121,6 +122,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 广播接口 | <a href="#14_1" name="_14_1">removeGlobalBroadcastListener</a> | 移除android全局广播| 否 | 低
 | 广播接口 | <a href="#14_2" name="_14_2">sendGlobalBroadcast</a> | 发送android全局广播| 否 | 高
 | 框架接口 | <a href="#15_0" name="_15_0">deviceReady</a> | 监听设备是否准备好，有些接口需要在ready后调用 | 否 | 低 
+| 框架接口 | <a href="#15_6" name="_15_6">ccReady</a> | 监听ccApp设备属性是否准备好，监听该事件可以不用监听deviceReady | 否 | 低 
 | 框架接口 | <a href="#15_1" name="_15_1">bindEvent</a> | 绑定监听页面和遥控器按键相关事件| 否 | 低
 | 框架接口 | <a href="#15_2" name="_15_2">exitPage</a> | 退出页面| 否 | 低
 | 框架接口 | <a href="#15_3" name="_15_3">setNativeToJsBridgeMode</a> | 设置酷开系统向网页发送消息的模式| 否 | 高
@@ -1541,6 +1543,26 @@ __监听酷开系统设备就绪状态__
           console.log(JSON.stringify(res))
         }
       })
+    },
+    success(res) {
+      //该回调只表示设置成功
+    }
+  })
+```
+<br/>
+<a name = "15_6" href="#_15_6"><font size=5>ccApp.ccReady(Object obj)</font></a>
+
+__监听ccApp设备属性就绪状态__
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| onReceive | `Function` |  | 是 | 设备就绪后触发该回调 |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+```js
+  ccApp.ccReady({
+    onReceive() { //在回调中可以直接获取ccApp设备属性
+      console.log(ccApp.ccChip)
     },
     success(res) {
       //该回调只表示设置成功
