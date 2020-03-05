@@ -946,7 +946,7 @@ __启动用户登录页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | source | `String` | `other` | 否 | `tencent|other,other包括yinhe,youku等`|
-| tencentType | `String` |  | 是 | source为tencent时必填：`qq|weixin|both` |
+| tencentType | `String` |  | 是 | 腾讯源登录方式，source为tencent时使用：`qq|weixin|both` |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
@@ -975,7 +975,7 @@ success回调函数参数 `Object res.data`
 | 属性 | 类型 | 说明 |
 | :-: | :-: | :-: |
 | hasLogin | `Boolean` | `true|false` |
-| tencentType | `String` | `qq|weixin|both`, source=tencent且hasLogin=false时，该属性值才有意义 |
+| tencentType | `String` | `qq|weixin|both`, 当source=tencent且hasLogin=false时使用，表示腾讯源可选择的登录方式 |
 
 示例代码
 
