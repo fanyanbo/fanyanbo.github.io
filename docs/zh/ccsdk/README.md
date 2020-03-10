@@ -132,7 +132,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 <br/>
 
 ### ccApp对象的属性
-| 属性名称 | 功能说明 | deviceready后调用| 权限等级 |
+| 属性名称 | 功能说明 | ccReady后调用| 权限等级 |
 | :- | :- | :- | :-: |
 | <a href="#">ccDebug</a> | 设置/获取PC模式下设备/用户/登录/应用版本等信息| 否 | 低
 | <a href="#">ccBrowser</a> | 包含浏览器版本信息| 否 | 低
@@ -150,6 +150,11 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | <a href="#">ccAndroidSDK</a> | Android 版本 | 是 | 低
 | <a href="#">ccBrand</a> | 品牌 | 是 | 低
 | <a href="#">ccTVName</a> | 电视名称 | 是 | 低
+
+::: warning
+有些属性须在ccReady接口onReceive回调后使用，以确保相关属性已被赋值
+ccReady可以取代deviceReady，但deviceReady触发得更早一些
+:::
 
 <br/>
 
