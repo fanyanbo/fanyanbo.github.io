@@ -63,7 +63,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 
 | 模块划分 | 调用方法 | 功能说明 | deviceready后调用| 权限等级 |
 | :- | :- | :- | :-: | :-: |
-| 系统接口 | <a href="#0_2" name="_0_2"> getAppInfo </a> | 获取app相关信息 | 否 | 低
+| 系统接口 | <a href="#0_2" name="_0_2"> getAppInfo </a> | 获取app相关信息，系统应用信息可直接读取ccApp属性获取 | 否 | 低
 | 系统接口 | <a href="#0_3" name="_0_3">getProperties </a> | 获取系统属性| 否 | 低
 | 系统接口 | <a href="#0_4" name="_0_4">addStatusChangedListener</a> | 添加`USB|网络|用户登录|支付|下载`等状态变化监听 | 否 | 低
 | 系统接口 | <a href="#0_5" name="_0_5">removeStatusChangedListener</a> | 移除状态变化监听 | 否 | 低
@@ -128,6 +128,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 框架接口 | <a href="#15_3" name="_15_3">setNativeToJsBridgeMode</a> | 设置酷开系统向网页发送消息的模式| 否 | 高
 | 框架接口 | <a href="#15_4" name="_15_4">checkJsApi</a> | 判断当前客户端版本是否支持指定JS接口 | 否 | 低
 | 框架接口 | <a href="#15_5" name="_15_5">getPerformance</a> | 获取页面启动节点时间戳 | 否 | 低
+| 框架接口 | <a href="#15_6" name="_15_6">setButtonListenerFlag</a> | 动态设置键值监听开关 | 否 | 低
 
 <br/>
 
@@ -164,10 +165,10 @@ ccReady可以取代deviceReady，但deviceReady触发得更早一些
 
 <a name = "0_2" href="#_0_2"><font size=5>ccApp.getAppInfo(Object obj)</font></a>
 
-__获取app信息__
+__获取app信息【系统应用信息可直接读取ccApp属性获取】__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| pkgList | `Array` |  | 是 | 包名作为数组项 |
+| pkgList | `Array` |  | 是 | Android应用包名作为数组项 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
@@ -1646,6 +1647,24 @@ __获取页面启动节点时间戳__
       console.log(JSON.stringify(res))
       // 结果输出：{"errMsg":"getPerformance:ok","data":"{\"initWebViewBeforeTime\":1579169963499,\"initWebViewAfterTime\":1579169963529,\"loadUrlBeforeTime\":1579169963677,\"loadUrlStartTime\":1579169964241,\"loadUrlFinishTime\":1579169965960}"}
     }
+  })
+```
+<br/>
+
+<a name = "15_6" href="#_15_6"><font size=5>ccApp.setButtonListenerFlag(Object obj)</font></a>
+
+__动态设置键值监听开关【浏览器v2.1.x版本支持】__
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| name | `String` |  | 是 | 键值名称，如返回键名称：`backbutton` |
+| flag | `Boolean` |  | 是 | 开关值 `true|false` |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+```js
+  ccApp.setButtonListenerFlag({
+    name: 'backbutton',
+    flag: false
   })
 ```
 <br/>
