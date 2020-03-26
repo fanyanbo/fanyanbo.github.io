@@ -419,9 +419,9 @@ __启动显示弹窗，暂只支持显示整张图片__
 __启动Android页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| type | `String` |  | 是 | `action|class|uri`|
+| type | `String` |  | 是 | `action|package|class|uri`|
 | actionName | `String` |  | 是 | type为action时必填 |
-| packageName | `String` |  | 是 | type为class时必填 |
+| packageName | `String` |  | 是 | type为package时必填 |
 | className | `String` |  | 是 | type为class时必填 |
 | uri | `String` |  | 是 | type为uri时必填 |
 | params | `Array` |  | 否 | 对象数组，如[{'key1': 'value1'}, {'key2': 'value2'}] |
@@ -1598,7 +1598,7 @@ __退出当前网页__
 __启动用户登录页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| mode | `Number` | 2 | 否 | 可选`0|1|2` |
+| mode | `Number` | 2 | 否 | 可选`0|1|2` 分别表示`POLLING|LOAD_URL|ONLINE_EVENT` |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
