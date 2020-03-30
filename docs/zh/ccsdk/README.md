@@ -1040,17 +1040,17 @@ __移除用户登录状态变化事件监听__
 
 <a name = "6_0" href="#_6_0"><font size=5>ccApp.logDataCollection(Object obj)</font></a>
 
-__发送自定义行为数据到酷开大数据【待测】__
+__发送自定义数据到酷开大数据__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | eventName | `String` |  | 是 |  |
-| eventParams | `String|Object` |  | 是 |  |
+| eventParams | `String|Object` |  | 否 |  |
 | 公共属性 | `Function` |  | 否 | `success|fail`接口回调函数 |
 
 示例代码
 ```js
-  ccApp.submitDataCollection({
-    eventId: 'button_click',
+  ccApp.logDataCollection({
+    eventName: 'button_click',
     eventParams: {'pageName': 'homepage', 'buttonName': 'cancel'},
     success(res) {
       console.log(JSON.stringify(res))
