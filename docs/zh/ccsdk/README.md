@@ -104,9 +104,12 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 支付接口 | <a href="#7_0" name="_7_0">startPay </a> | 启动支付页面 | 是 | 高
 | 支付接口 | <a href="#7_1" name="_7_1">addPayChangedListener </a> | 添加支付状态变化事件监听| 否 | 低
 | 支付接口 | <a href="#7_2" name="_7_2">removePayChangedListener </a> | 移除支付状态变化事件监听| 否 | 低
-| 广告接口 | <a href="#8_0" name="_8_0">getAdData </a>  | 获取广告数据 | 是 | 高
-| 广告接口 | <a href="#8_1" name="_8_1">adDataCollection </a>  | 采集广告监测数据 | 是 | 高
-| 广告接口 | <a href="#8_2" name="_8_2">thirdAdDataCollection </a>  | 采集第三方广告监测数据 | 是 | 高
+| 广告接口 | <a href="#8_0" name="_8_0">getAdData </a>  | 获取广告数据【已废弃】 | 是 | 高
+| 广告接口 | <a href="#8_1" name="_8_1">adDataCollection </a>  | 采集广告监测数据【已废弃】 | 是 | 高
+| 广告接口 | <a href="#8_2" name="_8_2">thirdAdDataCollection </a>  | 采集第三方广告监测数据【已废弃】 | 是 | 高
+| 广告接口 | <a href="#8_3" name="_8_3">getAdDataV2 </a>  | 获取广告数据 | 是 | 高
+| 广告接口 | <a href="#8_4" name="_8_4">adDataCollectionV2 </a>  | 提交广告数据 | 是 | 高
+| 广告接口 | <a href="#8_5" name="_8_5">addVoiceChangedListener </a>  | 添加语音广告监听 | 是 | 高
 | 主页接口 | <a href="#9_0" name="_9_0">startHomeTab</a> | 跳转主页tab页 | 否 | 低
 | 主页接口 | <a href="#9_1" name="_9_1">startHomeSecondList</a> | 跳转主页二级列表页 | 否 | 低
 | 主页接口 | <a href="#9_2" name="_9_2">startHomeSpecial</a> | 跳转主页专题页 | 否 | 低
@@ -114,6 +117,7 @@ __`2.当监听遥控器主页、返回等按键时，酷开系统会将键值处
 | 影视接口 | <a href="#10_1" name="_10_1">startMovieCarousel</a> | 启动影视轮播页| 否 | 低
 | 影视接口 | <a href="#10_2" name="_10_2">startMovieMemberCenter</a> | 启动影视VIP购买页| 否 | 低
 | 商城接口 | <a href="#11_0" name="_11_0">startMallDetail</a> | 启动商品详情页| 否 | 低
+| 商城接口 | <a href="#11_1" name="_11_1">startMallOrderDetail</a> | 启动商品订单详情页| 否 | 低
 | 应用接口 | <a href="#12_0" name="_12_0">startMyApps</a> | 启动我的应用页| 否 | 低
 | 应用接口 | <a href="#12_1" name="_12_1">startAppStoreDetail</a> | 启动应用详情页| 否 | 低
 | 语音接口 | <a href="#13_0" name="_13_0">addVoiceChangedListener</a>  | 添加语音事件监听| 否 | 低
@@ -1153,9 +1157,9 @@ __移除支付状态变化事件监听__
 
 ### 广告接口
 
-<a name = "8_0" href="#_8_0"><font size=5>ccApp.getAdData(Object obj)</font></a>
+<a name = "8_3" href="#_8_3"><font size=5>ccApp.getAdDataV2(Object obj)</font></a>
 
-__获取广告数据【待完善】__
+__获取广告数据__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
 | appId | `String` |  | 是 |  |
@@ -1164,72 +1168,63 @@ __获取广告数据【待完善】__
 
 示例代码
 ```js
-  ccApp.getAdData({
+  ccApp.getAdDataV2({
     appId: 'CCADTV10007',
-    params: {'key1':'value1','key2':'value2'},
+    params: {'game_id': 'G0005'},
     success: function(result) {
-      console.log(JSON.stringify(result))
+      let baseInfo = JSON.parse(res.data).baseInfo // 提交广告数据时需要
+      let { actionDataList, mediaData } = JSON.parse(res.data).bodyData[0]
+      let { voiceCmd: {key, val} } = actionDataList[0] // 🈶️语音监听时需要
     }
   })
 ```
 <br/>
 
-<a name = "8_1" href="#_8_1"><font size=5>ccApp.adDataCollection(Object obj)</font></a>
+<a name = "8_4" href="#_8_4"><font size=5>ccApp.adDataCollectionV2(Object obj)</font></a>
 
-__采集广告监测数据【待完善】__
+__提交广告数据__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| type | `String` |  | 是 | `custom|normal` |
-| baseInfo | `String` |  | 是 | type是normal时传该值 |
-| url | `String` |  | 是 | type是custom时传该值 |
-| eventName | `String` |  | 是 |  |
-| eventParams | `Object` |  | 是 |  |
+| baseInfo | `String` |  | 是 | 从广告数据中解析获取 |
+| state | `String` |  | 是 | `index_start|index_finish|index_error|index_tick|index_voice_0|index_voice_2|index_click_0|index_click_2` |
+| index | `Int` |  | 是 | 固定传0 |
+| extraInfo | `String` |  | 是 | 根据不同state传不同值 |
 | 公共属性 | `Function` |  | 否 | `success|fail`接口回调函数 |
 
 示例代码
 ```js
-  ccApp.adDataCollection({
-    type: 'normal',
-    baseInfo: 'baseInfo',
-    eventName: 'ad_show',
-    eventParams: {'key1':'value1','key2':'value2','key3':'value3'},
-    success: function(result) {
-      console.log(JSON.stringify(result))
-    }
+  ccApp.adDataCollectionV2({
+    baseInfo: baseInfo,
+    state: 'index_tick',
+    index: 0,
+    extraInfo: JSON.stringify({'tick': 1})
   })
 
-  ccApp.adDataCollection({
-    type: 'custom',
-    url: 'https://xxx.xxx',
-    eventName: 'web_dmp_show',
-    eventParams: {'crowdId':'213','policyIds':'213','schemeId':'312'},
-    success: function(result) {
-      console.log(JSON.stringify(result))
-    }
+  ccApp.adDataCollectionV2({
+    baseInfo: baseInfo,
+    state: 'index_start',
+    index: 0,
+    extraInfo: ''
   })
 ```
 <br/>
 
-<a name = "8_2" href="#_8_2"><font size=5>ccApp.thirdAdDataCollection(Object obj)</font></a>
+<a name = "8_5" href="#_8_5"><font size=5>ccApp.addVoiceChangedListener(Object obj)</font></a>
 
-__采集第三方广告监测数据【待完善】__
+__添加语音广告监听__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| scheduleId | `String` |  | 是 | |
-| orderId | `String` |  | 是 | |
-| adSpaceId | `String` |  | 是 | |
-| trackUrl | `Array` |  | 是 |  |
-| 公共属性 | `Function` |  | 否 | `success|fail`接口回调函数 |
+| onReceive | `Function` |  | 是 | 获取数据回调函数 |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 ```js
-  ccApp.thirdAdDataCollection({
-    scheduleId: 'scheduleId',
-    orderId: 'orderId',
-    adSpaceId: 'adSpaceId',
-    trackUrl: ['https://xxx.xxx','https://xxx.xxx'],
-    success(res) {
-      console.log(JSON.stringify(res))
+  ccApp.addVoiceChangedListener({
+    onReceive: function(res) {
+      // 以下条件中key从广告数据解析获取
+      if(res.cc_type === 'ad' && res.ad_voice_key === key) {
+        // Todo your business
+      }
     }
   })
 ```
@@ -1373,6 +1368,25 @@ __启动商城商品详情页，区分图文和视频两种__
   ccApp.startMallDetail({
     type: 'text',
     id: '123',
+    success: function(res) {
+      console.log(JSON.stringify(res))
+    }
+  })
+```
+<br/>
+
+<a name = "11_1" href="#_11_1"><font size=5>ccApp.startMallOrderDetail(Object obj)</font></a>
+
+__启动商城商品订单详情页__
+| 属性 | 类型 | 默认值 | 必填 | 说明 |
+| :-: | :-: | :-: | :-: | :-: |
+| orderId | `String` |  | 是 | 商品订单id |
+| 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
+
+示例代码
+```js
+  ccApp.startMallOrderDetail({
+    orderId: '123',
     success: function(res) {
       console.log(JSON.stringify(res))
     }
