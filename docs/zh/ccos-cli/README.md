@@ -67,12 +67,12 @@ Usage: init|i [dir] -t [fis|webpack|gulp]
 创建一个可以使用酷开系统Api的web项目
 
 Options:
-  -t, --tool [fis|webpack|gulp]  选择构建工具, 默认是fis
+  -t, --tool [fis|webpack|gulp]  选择构建工具, 默认是fis, 建议使用webpack构建
   -h, --help                     output usage information
 ```
 
 > [dir] 指定项目目录，不指定则默认在当前工作目录创建<br/>
-> -t 指定构建工具，不指定则默认使用fis3，目前暂不支持使用gulp构建
+> -t 指定构建工具，不指定则默认使用fis3，建议使用webpack构建，目前暂不支持使用gulp构建
 
 ```bash
 # 创建项目，工程目录为mydemo，构建工具为fis3
