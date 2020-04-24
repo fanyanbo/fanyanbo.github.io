@@ -58,6 +58,7 @@ module.exports = {
       'getting-started',
       'ccos-cli',
       'ccsdk',
+      'kuiper-cli',
       'other'
     ],
     configureWebpack: {

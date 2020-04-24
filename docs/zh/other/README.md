@@ -7,13 +7,13 @@
 
 <br/>
 
-### 安装与环境依赖
+### 安装依赖
 
 `npm install -S @ccos/ccsdk`
 
 <br/>
 
-### API与使用
+### API
 
 | 调用方法 | 功能说明 |
 | :- | :- |
@@ -30,7 +30,7 @@
 
 <br/>
 
-## 焦点切换插件
+## 焦点切换
 
 ### 介绍
 
@@ -356,7 +356,7 @@ ccmap.init(".coocaa_btn", '#second', "btn_class")
 <br/>
 <br/>
 
-## 简易CCSDK
+## CCSDK Lite版
 
 ### API 调用说明
 
