@@ -365,7 +365,7 @@ ccmap.init(".coocaa_btn", '#second', "btn_class")
 | 调用方法 | 功能说明 |
 | :- | :- |
 | <a href="#1-1" name="_1-1"> _liteNativeApi.start </a> | 跳转其他页面
-| <a href="#1-2" name="_1-2"> _liteNativeApi.check </a> | 检测指定应用是否存在
+| <a href="#1-2" name="_1-2"> _liteNativeApi.check </a> | 检测应用是否存在,如存在可获取版本信息
 | <a href="#1-3" name="_1-3"> _liteNativeApi.getInfo </a> | 获取设备信息
 | <a href="#1-4" name="_1-4"> _liteNativeApi.getProperties </a> | 获取系统属性
 | <a href="#1-5" name="_1-5"> _liteNativeApi.exit </a> | 退出当前页面
