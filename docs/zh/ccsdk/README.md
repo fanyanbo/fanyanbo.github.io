@@ -585,7 +585,8 @@ __创建下载任务__
 		appId: '26371',
 		title: '当贝健身',
 		success: function(res) {
-			console.log(JSON.stringify(res))
+      console.log(JSON.stringify(res))
+      console.log('taskId='+res.res.taskid)
 		}
 	})
 ```
@@ -596,13 +597,13 @@ __创建下载任务__
 __暂停下载__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| taskId | `String` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
+| taskId | `Number` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 ```js
   ccApp.pauseDownloadTask({
-    taskId: '97',
+    taskId: 97,
     success: function(res) {
       console.log(JSON.stringify(res))
     }
@@ -615,12 +616,13 @@ __暂停下载__
 __恢复下载__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| taskId | `String` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
+| taskId | `Number` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 ```js
   ccApp.resumeDownloadTask({
+    taskId: 97,
     success: function(res) {
       console.log(JSON.stringify(res))
     }
@@ -634,13 +636,14 @@ __删除下载__
 
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| taskId | `String` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
+| taskId | `Number` | | 是 | 任务id, 创建下载任务返回结果中可获取 |
 | 公共属性 | `Function` |  | 否 | `success|fail|complete`接口回调函数 |
 
 示例代码
 
 ```js
   ccApp.deleteDownloadTask({
+    taskId: 97,
     success: function(res) {
       console.log(JSON.stringify(res))
     }
