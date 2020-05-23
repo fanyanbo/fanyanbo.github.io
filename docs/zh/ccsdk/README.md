@@ -423,9 +423,9 @@ __启动显示弹窗，暂只支持显示整张图片__
 __启动Android页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| type | `String` |  | 是 | `action|package|class|uri`|
-| actionName | `String` |  | 是 | type为action时必填 |
-| packageName | `String` |  | 是 | type为package时必填 |
+| type | `String` |  | 是 | `action|package|class|uri|service`|
+| actionName | `String` |  | 是 | type为action或service时必填 |
+| packageName | `String` |  | 是 | type为package或service时必填 |
 | className | `String` |  | 是 | type为class时必填 |
 | uri | `String` |  | 是 | type为uri时必填 |
 | params | `Array` |  | 否 | 对象数组，如[{'key1': 'value1'}, {'key2': 'value2'}] |
