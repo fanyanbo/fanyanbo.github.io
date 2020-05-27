@@ -423,9 +423,9 @@ __启动显示弹窗，暂只支持显示整张图片__
 __启动Android页面__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| type | `String` |  | 是 | `action|package|class|uri|service`|
+| type | `String` |  | 是 | `action|class|package|class|uri|service`|
 | actionName | `String` |  | 是 | type为action或service时必填 |
-| packageName | `String` |  | 是 | type为package或service时必填 |
+| packageName | `String` |  | 是 | type为package或service或class时必填 |
 | className | `String` |  | 是 | type为class时必填 |
 | uri | `String` |  | 是 | type为uri时必填 |
 | params | `Array` |  | 否 | 对象数组，如[{'key1': 'value1'}, {'key2': 'value2'}] |
@@ -438,6 +438,14 @@ __启动Android页面__
 		type: 'action',
 		actionName: 'android.settings.ADD_ACCOUNT_SETTINGS',
 		params: [{ 'needFinish': true }],
+		success: function(res) {
+			console.log(res)
+		}
+  })
+  
+  ccApp.startCommonPage({
+		type: 'package',
+		packageName: 'com.lutongnet.ott.health',
 		success: function(res) {
 			console.log(res)
 		}
