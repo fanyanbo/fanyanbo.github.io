@@ -950,11 +950,11 @@ __退出用户登录__
 
 示例代码
 ```js
-  ccApp.setUserLogout({
+  ccApp.setLogout({
     success(res) {
       console.log(JSON.stringify(res))
       /* 结果输出
-      {"errMsg":"setUserLogout:ok"}
+      {"errMsg":"setLogout:ok"}
       */
     }
   })
@@ -1425,7 +1425,7 @@ __启动我的应用页__
 ```
 <br/>
 
-<a name = "12_0" href="#_12_0"><font size=5>ccApp.startAppStoreDetail(Object obj)</font></a>
+<a name = "12_1" href="#_12_1"><font size=5>ccApp.startAppStoreDetail(Object obj)</font></a>
 
 __启动应用详情页__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
