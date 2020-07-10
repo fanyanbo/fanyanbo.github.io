@@ -1058,7 +1058,7 @@ __移除用户登录状态变化事件监听__
 __发送自定义数据到酷开大数据__
 | 属性 | 类型 | 默认值 | 必填 | 说明 |
 | :-: | :-: | :-: | :-: | :-: |
-| productId | `App_Browser` |  | 否 |  |
+| productId | `String` | `App_Browser` | 否 |  |
 | eventName | `String` |  | 是 |  |
 | eventParams | `String|Object` |  | 否 |  |
 | 公共属性 | `Function` |  | 否 | `success|fail`接口回调函数 |
