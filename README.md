@@ -1,4 +1,9 @@
-### vuepress-theme-api主题
+<!--
+ * @Author: Kuiper
+ * @Date: 2019-06-06 18:48:44
+ * @LastEditTime: 2020-12-04 15:19:28
+-->
+### vuepress-swaiot-api
 
 ```bash
 # Install vuepress
@@ -10,16 +15,14 @@ npm install -g vuepress-theme-api
 ```
 
 ```bash
-# Install dependencies
+
 npm install
 
-# Start writing
+# 不可少
+sudo npm run link
+
 npm run docs:dev
 
-# Build to static files
 npm run docs:build
-
-# deploy
-npm run deply
 
 ```
